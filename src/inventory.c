@@ -64,7 +64,7 @@ void clear_player_data(void) {
     playerData->curFP = 5;
     playerData->curMaxFP = 5;
     playerData->hardMaxFP = 5;
-    playerData->maxBP = 5;
+    playerData->maxBP = 3;
     playerData->level = 1;
     playerData->bootsLevel = 0;
     playerData->hammerLevel = -1;
