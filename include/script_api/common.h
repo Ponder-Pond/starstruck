@@ -1216,6 +1216,8 @@ API_CALLABLE(OnDefeatEnemy);
 /// @evtapi
 API_CALLABLE(OnFleeBattleDrops);
 
+API_CALLABLE(OnDefeatEnemySpecial);
+
 /// @}
 
 /// @{
@@ -1302,6 +1304,8 @@ API_CALLABLE(SetMessageText);
 /// @param value
 /// @param messageVarIndex
 API_CALLABLE(SetMessageValue);
+
+API_CALLABLE(DoNpcDefeatSpecial);
 
 /// @}
 

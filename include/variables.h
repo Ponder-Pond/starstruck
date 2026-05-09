@@ -86,6 +86,7 @@ extern s32 PartnerIDFromMenuIndex[12]; // partner IDs
 
 // Scripts
 extern EvtScript EVS_NpcDefeat;
+extern EvtScript EVS_NpcDefeatDropNoCoins;
 extern EvtScript ShakeCam1;
 extern EvtScript ShakeCamX;
 

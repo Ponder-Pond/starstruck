@@ -6800,6 +6800,14 @@ segments:
     - [auto, c, script/dig_03]
     - [auto, c, script/dig_04]
     - [auto, c, script/dig_05]
+  - dir: battle/area/tst
+    type: code
+    start: auto
+    vram_class: battle_area
+    subalign: 8
+    subsegments:
+    - [auto, c, area]
+
 
 #######################
 ### Battle Partners ###
@@ -9400,6 +9408,17 @@ segments:
     - [auto, c, music]
     - [auto, c, main]
     - [auto, c, entity]
+  - name: isk_20
+    dir: world/area/isk/isk_20
+    type: code
+    start: auto
+    vram_class: map
+    subsegments:
+    - [auto, cpp, main]
+    - [auto, cpp, npc]
+    - [auto, cpp, entity]
+    - [auto, cpp, scenes]
+    - [auto, cpp, gauntlet]
   - name: trd_00
     dir: world/area/trd/trd_00
     type: code

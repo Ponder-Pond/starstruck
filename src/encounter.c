@@ -73,6 +73,18 @@ EvtScript EVS_NpcDefeat = {
     End
 };
 
+EvtScript EVS_NpcDefeatDropNoCoins = {
+    Call(GetBattleOutcome, LVar0)
+    Switch(LVar0)
+        CaseEq(OUTCOME_PLAYER_WON)
+            Call(OnDefeatEnemySpecial)
+        CaseEq(OUTCOME_PLAYER_LOST)
+        CaseEq(OUTCOME_PLAYER_FLED)
+    EndSwitch
+    Return
+    End
+};
+
 EvtScript EVS_FleeBattleDrops = {
     Call(OnFleeBattleDrops)
     Return
@@ -475,6 +487,41 @@ API_CALLABLE(OnFleeBattleDrops) {
     }
 
     return --script->functionTemp[1] == 0;
+}
+
+API_CALLABLE(OnDefeatEnemySpecial) {
+    Enemy* enemy = script->owner1.enemy;
+    Npc* npc = get_npc_unsafe(enemy->npcID);
+    s32 temp1;
+
+    if (isInitialCall) {
+        script->functionTemp[0] = 0;
+        script->functionTemp[1] = 20;
+    }
+
+    if (script->functionTemp[1] & 1) {
+        npc->flags &= ~NPC_FLAG_INVISIBLE;
+    } else {
+        npc->flags |= NPC_FLAG_INVISIBLE;
+    }
+
+    if (script->functionTemp[1] == 15) {
+        sfx_play_sound(SOUND_ACTOR_DEATH);
+        fx_damage_stars(FX_DAMAGE_STARS_1, npc->pos.x, npc->pos.y + (npc->collisionHeight / 2), npc->pos.z, 0, -1.0f, 0, 10);
+    }
+
+    temp1 = script->functionTemp[1];
+    if (script->functionTemp[1] == 10) {
+        fx_big_smoke_puff(npc->pos.x, npc->pos.y + 10.0f, npc->pos.z + 10.0f);
+    }
+
+    script->functionTemp[1]--;
+    if (script->functionTemp[1] == 0) {
+        npc->flags |= NPC_FLAG_INVISIBLE;
+        return ApiStatus_DONE1;
+    }
+
+    return ApiStatus_BLOCK;
 }
 
 void update_encounters_neutral(void) {

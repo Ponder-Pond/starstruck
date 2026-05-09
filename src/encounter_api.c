@@ -186,6 +186,23 @@ API_CALLABLE(DoNpcDefeat) {
     return ApiStatus_FINISH;
 }
 
+API_CALLABLE(DoNpcDefeatSpecial) {
+    Enemy* owner = script->owner1.enemy;
+    Npc* npc = get_npc_unsafe(owner->npcID);
+    Evt* newScript;
+
+    kill_script(script);
+    npc->curAnim = owner->animList[6];
+    newScript = start_script(&EVS_NpcDefeatDropNoCoins, EVT_PRIORITY_A, 0);
+    owner->defeatScript = newScript;
+    owner->defeatScriptID = newScript->id;
+    newScript->owner1.enemy = owner;
+    newScript->owner2.npcID = owner->npcID;
+    newScript->groupFlags = owner->scriptGroup;
+
+    return ApiStatus_FINISH;
+}
+
 void start_battle(Evt* script, s32 songID) {
     EncounterStatus* currentEncounter = &gCurrentEncounter;
     Enemy* enemy = script->owner1.enemy;
