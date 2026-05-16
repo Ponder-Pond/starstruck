@@ -126,7 +126,4 @@ EXTERN_C StageList b_area_kkj_Stages;
 EXTERN_C BattleList b_area_dig_Formations;
 EXTERN_C StageList b_area_dig_Stages;
 
-EXTERN_C BattleList b_area_tst_Formations;
-EXTERN_C StageList b_area_tst_Stages;
-
 #endif
