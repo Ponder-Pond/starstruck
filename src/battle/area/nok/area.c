@@ -146,6 +146,11 @@ Formation A(Formation_18) = {
     ACTOR_BY_IDX(A(kent_c_koopa), BTL_POS_GROUND_B, 10),
 };
 
+Formation A(Formation_19) = {
+    OVL_ACTOR_BY_IDX("terratroopa", BTL_POS_GROUND_B, 10),
+    OVL_ACTOR_BY_IDX("goomba", BTL_POS_GROUND_C, 9),
+};
+
 BattleList A(Formations) = {
     BATTLE(A(Formation_00), A(nok_02), "クリボーx２"),
     BATTLE(A(Formation_01), A(nok_02), "クリボー,トゲクリボー"),
@@ -172,6 +177,7 @@ BattleList A(Formations) = {
     BATTLE(A(Formation_16), A(nok_02), "チョロボンx2"),
     BATTLE(A(Formation_17), A(nok_02), "チョロボンx4"),
     BATTLE(A(Formation_18), A(nok_02), "ゼニノコー"),
+    BATTLE(A(Formation_19), A(nok_02), "Terratroopa"),
     {},
 };
 

@@ -66,8 +66,8 @@ void clear_player_data(void) {
     playerData->hardMaxFP = 50;
     playerData->maxBP = 30;
     playerData->level = 27;
-    playerData->bootsLevel = 2;
-    playerData->hammerLevel = 2;
+    playerData->bootsLevel = 0;
+    playerData->hammerLevel = 0;
     playerData->hasActionCommands = true;
     playerData->coins = 0;
     playerData->starPieces = 0;

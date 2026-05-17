@@ -2334,3 +2334,14 @@
     stepDelay: [ 30, 30 ]
     tattleCamOffset: [ 0, 0, 0 ]
     shadowOffset: 0
+- Terratroopa:
+    level: 6
+    nameMsg: MSG_EnemyName_Terratroopa
+    tattleMsg: MSG_EnemyTattle_Terratroopa
+    walkSound: [ SOUND_ACTOR_STEP_A, SOUND_ACTOR_STEP_B ]
+    flySound: [ SOUND_ACTOR_STEP_A, SOUND_ACTOR_STEP_B ]
+    jumpSound: SOUND_ACTOR_JUMP
+    hurtSound: SOUND_ACTOR_HURT
+    stepDelay: [ 30, 30 ]
+    tattleCamOffset: [ 0, 0, 0 ]
+    shadowOffset: 0
