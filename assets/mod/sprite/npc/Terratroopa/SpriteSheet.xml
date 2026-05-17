@@ -61,14 +61,14 @@
 		<Animation name="Idle">
 			<Component name="Body" xyz="0,-4,0">
 				<Label name="Start"/>
-				<SetRaster index="7"/>
+				<SetRaster index="6"/>
 				<Wait duration="6"/>
+				<SetRaster index="7"/>
+				<Wait duration="32"/>
 				<SetRaster index="6"/>
-				<Wait duration="4"/>
+				<Wait duration="6"/>
 				<SetRaster index="14"/>
-				<Wait duration="18"/>
-				<SetRaster index="6"/>
-				<Wait duration="4"/>
+				<Wait duration="16"/>
 				<Goto dest="Start"/>
 			</Component>
 		</Animation>
@@ -188,16 +188,63 @@
 			<Component name="Body" xyz="-5,-6,0">
 				<Label name="Start"/>
 				<SetRaster index="B"/>
-				<Wait duration="12"/>
-				<SetRaster index="B"/>
-				<SetScale mode="y" percent="98"/>
-				<Wait duration="4"/>
+				<Wait duration="80"/>
 				<SetRaster index="B"/>
 				<SetScale mode="y" percent="96"/>
-				<Wait duration="4"/>
+				<SetPos flag="0" xyz="1,0,0"/>
+				<SetRot xyz="0,0,5"/>
+				<Wait duration="2"/>
 				<SetRaster index="B"/>
-				<SetScale mode="y" percent="98"/>
-				<Wait duration="4"/>
+				<SetScale mode="y" percent="92"/>
+				<SetPos flag="0" xyz="2,0,0"/>
+				<SetRot xyz="0,0,10"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<SetScale mode="y" percent="96"/>
+				<SetPos flag="0" xyz="1,0,0"/>
+				<SetRot xyz="0,0,5"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<SetScale mode="y" percent="96"/>
+				<SetPos flag="0" xyz="-1,1,0"/>
+				<SetRot xyz="0,0,-5"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<SetScale mode="y" percent="92"/>
+				<SetPos flag="0" xyz="-1,2,0"/>
+				<SetRot xyz="0,0,-10"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<SetScale mode="uniform" percent="96"/>
+				<SetPos flag="0" xyz="-1,1,0"/>
+				<SetRot xyz="0,0,-5"/>
+				<Wait duration="2"/>
+				<Loop dest="Start" count="2"/>
+				<SetRaster index="19"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<SetScale mode="uniform" percent="106"/>
+				<Wait duration="2"/>
+				<SetRaster index="1D"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<SetScale mode="uniform" percent="112"/>
+				<Wait duration="2"/>
+				<SetRaster index="1C"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<Wait duration="24"/>
+				<SetRaster index="1B"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<Wait duration="2"/>
+				<SetRaster index="1A"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<Wait duration="24"/>
+				<SetRaster index="1D"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<Wait duration="2"/>
+				<SetRaster index="1D"/>
+				<SetPos flag="0" xyz="4,2,0"/>
+				<Wait duration="2"/>
 				<Goto dest="Start"/>
 			</Component>
 		</Animation>
@@ -340,7 +387,7 @@
 			<Component name="Body" xyz="0,-6,0">
 				<Label name="Start"/>
 				<SetRaster index="15"/>
-				<SetScale mode="y" percent="105"/>
+				<SetScale mode="y" percent="104"/>
 				<SetPos flag="0" xyz="0,-1,0"/>
 				<Wait duration="6"/>
 				<SetRaster index="16"/>
@@ -352,7 +399,7 @@
 			<Component name="Body" xyz="0,-6,0">
 				<Label name="Start"/>
 				<SetRaster index="17"/>
-				<SetScale mode="y" percent="105"/>
+				<SetScale mode="y" percent="104"/>
 				<SetPos flag="0" xyz="0,-1,0"/>
 				<Wait duration="6"/>
 				<SetRaster index="18"/>

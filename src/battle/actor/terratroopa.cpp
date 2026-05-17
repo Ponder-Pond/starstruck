@@ -71,7 +71,7 @@ ActorPartBlueprint ActorParts[] = {
         .flags = ACTOR_PART_FLAG_PRIMARY_TARGET,
         .index = PRT_MAIN,
         .posOffset = { 0, 0, 0 },
-        .targetOffset = { 0, 0 },
+        .targetOffset = { 0, 15 },
         .opacity = 255,
         .idleAnimations = DefaultAnims,
         .defenseTable = NormalDefense,
@@ -148,6 +148,7 @@ EvtScript EVS_Init = {
     Call(BindIdle, ACTOR_SELF, Ref(EVS_Idle))
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
     Call(SetActorVar, ACTOR_SELF, AVAR_IsHidden, false)
+    Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(1.1), Float(1.0))
     Return
     End
 };
@@ -158,16 +159,16 @@ EvtScript EVS_UpdateTargetOffsets = {
     Switch(LVar0)
         CaseEq(0)
             IfFlag(LVar1, STATUS_FLAG_SLEEP | STATUS_FLAG_DIZZY)
-                Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, -5, 15)
+                Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 15)
                 Call(SetProjectileTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 0)
                 Call(N(SetAbsoluteStatusOffsets), -10, 20, 10, 20)
             Else
-                Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, -4, 32)
+                Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 15)
                 Call(SetProjectileTargetOffset, ACTOR_SELF, PRT_MAIN, -1, -4)
                 Call(N(SetAbsoluteStatusOffsets), -15, 32, 5, 32)
             EndIf
         CaseEq(1)
-            Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, -5, 15)
+            Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 15)
             Call(SetProjectileTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 0)
             Call(N(SetAbsoluteStatusOffsets), -10, 20, 10, 20)
     EndSwitch
@@ -255,8 +256,6 @@ EvtScript EVS_Idle = {
     End
 };
 
-s32 FlipPosOffsets[] = { 9, 16, 22, 26, 30, 32, 33, 32, 30, 26, 22, 16, 9, 0, 4, 6, 7, 6, 4, 0, 2, 0 };
-
 EvtScript EVS_HandleEvent = {
     Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
@@ -300,9 +299,10 @@ EvtScript EVS_HandleEvent = {
             Call(SetActorVar, ACTOR_SELF, AVAR_HiddenTurns, 2)
             Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(HiddenDefense))
             Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(HiddenAnims))
+            Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 10)
             Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, true)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Terratroopa_Hurt)
-            Wait(10)
+            Wait(30)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Terratroopa_ShellIn)
             Wait(17)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Terratroopa_ShellIdle)
@@ -456,6 +456,7 @@ EvtScript EVS_TakeTurn = {
                 Call(SetActorVar, ACTOR_SELF, AVAR_IsHidden, false)
                 Call(SetIdleAnimations, ACTOR_SELF, PRT_MAIN, Ref(DefaultAnims))
                 Call(SetDefenseTable, ACTOR_SELF, PRT_MAIN, Ref(NormalDefense))
+                Call(SetTargetOffset, ACTOR_SELF, PRT_MAIN, 0, 15)
                 Call(SetActorFlagBits, ACTOR_SELF, ACTOR_FLAG_FLIPPED, false)
             EndIf
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
