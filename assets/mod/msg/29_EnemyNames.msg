@@ -525,3 +525,7 @@
 #message:29:(EnemyName_Terratroopa) {
 	Terratroopa[End]
 }
+
+#message:29:(EnemyName_Galoomba) {
+	Galoomba[End]
+}

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpriteSheet maxComponents="1" paletteGroups="5">
+	<PaletteList>
+		<Palette id="0" name="Default" src="Default.png"/>
+		<Palette id="1" name="Apple" src="Apple.png"/>
+		<Palette id="2" name="Goomnut" src="Goomnut.png"/>
+		<Palette id="3" name="Burn" src="Burn.png"/>
+	</PaletteList>
+	<RasterList>
+		<Raster id="0" name="Still" palette="0" src="Still.png"/>
+		<Raster id="1" name="Idle1" palette="0" src="Idle1.png"/>
+		<Raster id="2" name="Idle2" palette="0" src="Idle2.png"/>
+		<Raster id="3" name="Walk1" palette="0" src="Walk1.png"/>
+		<Raster id="4" name="Walk2" palette="0" src="Walk2.png"/>
+		<Raster id="5" name="Walk3" palette="0" src="Walk3.png"/>
+		<Raster id="6" name="Hurt1" palette="0" src="Hurt1.png"/>
+		<Raster id="7" name="Hurt2" palette="0" src="Hurt2.png"/>
+		<Raster id="8" name="Blink" palette="0" src="Blink.png"/>
+		<Raster id="9" name="Dizzy1" palette="0" src="Dizzy1.png"/>
+		<Raster id="A" name="Dizzy2" palette="0" src="Dizzy2.png"/>
+		<Raster id="B" name="Dizzy3" palette="0" src="Dizzy3.png"/>
+		<Raster id="C" name="Dizzy4" palette="0" src="Dizzy4.png"/>
+		<Raster id="D" name="Impact" palette="0" src="Impact.png"/>
+		<Raster id="E" name="Jump" palette="0" src="Jump.png"/>
+		<Raster id="F" name="Apple1" palette="1" src="Apple1.png"/>
+		<Raster id="10" name="Goomnut1" palette="2" src="Goomnut1.png"/>
+		<Raster id="11" name="Burn1" palette="3" src="Burn1.png"/>
+		<Raster id="12" name="Burn2" palette="3" src="Burn2.png"/>
+		<Raster id="13" name="BurnDefeat" palette="3" src="BurnDefeat.png"/>
+		<Raster id="14" name="ToppleDizzy1" palette="0" src="ToppleDizzy1.png"/>
+		<Raster id="15" name="ToppleDizzy2" palette="0" src="ToppleDizzy2.png"/>
+		<Raster id="16" name="ToppleDizzy3" palette="0" src="ToppleDizzy3.png"/>
+		<Raster id="17" name="ToppleDizzy4" palette="0" src="ToppleDizzy4.png"/>
+		<Raster id="18" name="ToppleIdle1" palette="0" src="ToppleIdle1.png"/>
+		<Raster id="19" name="ToppleIdle2" palette="0" src="ToppleIdle2.png"/>
+		<Raster id="1A" name="ToppleSleep" palette="0" src="ToppleSleep.png"/>
+	</RasterList>
+	<AnimationList>
+		<Animation name="Still">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Idle">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="0"/>
+				<Wait duration="8"/>
+				<SetRaster index="1"/>
+				<Wait duration="8"/>
+				<SetRaster index="0"/>
+				<Wait duration="8"/>
+				<SetRaster index="1"/>
+				<Wait duration="8"/>
+				<SetRaster index="0"/>
+				<Wait duration="8"/>
+				<SetRaster index="1"/>
+				<Wait duration="8"/>
+				<SetRaster index="0"/>
+				<Wait duration="8"/>
+				<SetRaster index="1"/>
+				<Wait duration="8"/>
+				<SetRaster index="2"/>
+				<Wait duration="20"/>
+				<SetRaster index="1"/>
+				<Wait duration="8"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Walk">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="4"/>
+				<Wait duration="8"/>
+				<SetRaster index="3"/>
+				<Wait duration="16"/>
+				<SetRaster index="4"/>
+				<Wait duration="8"/>
+				<SetRaster index="5"/>
+				<Wait duration="20"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Run">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="5"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Jump">
+			<Component name="Body" xyz="0,-20,0">
+				<Label name="Start"/>
+				<SetRaster index="E"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Hurt">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="6"/>
+				<Wait duration="4"/>
+				<SetRaster index="7"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="HurtStill">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="6"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Dizzy">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="9"/>
+				<Wait duration="8"/>
+				<SetRaster index="A"/>
+				<Wait duration="8"/>
+				<SetRaster index="B"/>
+				<Wait duration="8"/>
+				<SetRaster index="C"/>
+				<Wait duration="8"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Sleep">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="D"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Burn">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="11"/>
+				<Wait duration="8"/>
+				<SetRaster index="12"/>
+				<Wait duration="8"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="BurnStill">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="13"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Impact">
+			<Component name="Body" xyz="0,-20,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="0,8,0"/>
+				<SetRaster index="D"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="ToppleStill">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="18"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="ToppleIdle">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="18"/>
+				<Wait duration="8"/>
+				<SetRaster index="19"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="ToppleDizzy">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="14"/>
+				<Wait duration="8"/>
+				<SetRaster index="15"/>
+				<Wait duration="8"/>
+				<SetRaster index="16"/>
+				<Wait duration="8"/>
+				<SetRaster index="17"/>
+				<Wait duration="8"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="ToppleSleep">
+			<Component name="Body" xyz="-1,0,0">
+				<Label name="Start"/>
+				<SetRaster index="1A"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Nut">
+			<Component name="Nut" xyz="1,-1,0">
+				<Label name="Start"/>
+				<SetRaster index="10"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Berry">
+			<Component name="Berry" xyz="0,-2,0">
+				<Label name="Start"/>
+				<SetRaster index="F"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+	</AnimationList>
+</SpriteSheet>
