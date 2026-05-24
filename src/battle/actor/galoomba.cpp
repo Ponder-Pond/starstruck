@@ -310,10 +310,10 @@ EvtScript EVS_HandleEvent = {
                 UseBuf(Ref(FlipPosOffsets))
                 Set(LVarA, 0)
                 // Loop(ARRAY_COUNT(FlipPosOffsets))
-                Loop(12)
+                Loop(18)
                     BufRead1(LVar0)
                     Call(SetActorDispOffset, ACTOR_SELF, 0, LVar0, 0)
-                    Sub(LVarA, 15)
+                    Sub(LVarA, 10)
                     Call(SetActorRotation, ACTOR_SELF, 0, 0, LVarA)
                     Wait(1)
                 EndLoop
@@ -324,10 +324,14 @@ EvtScript EVS_HandleEvent = {
                 Call(SetActorDispOffset, ACTOR_SELF, 0, 0, 0)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_ToppleIdle)
             Else
-                Call(SetActorRotation, ACTOR_SELF, 0, 0, -180)
-                Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_Hurt)
-                Wait(8)
-                Call(SetActorRotation, ACTOR_SELF, 0, 0, 0)
+                Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_ToppleIdle)
+                UseBuf(Ref(FlipPosOffsets))
+                Loop(18)
+                    BufRead1(LVar0)
+                    Call(SetActorDispOffset, ACTOR_SELF, 0, LVar0, 0)
+                    Wait(1)
+                EndLoop
+                Call(SetActorDispOffset, ACTOR_SELF, 0, 0, 0)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_ToppleIdle)
             EndIf
         CaseEq(EVENT_SHOCK_HIT)
