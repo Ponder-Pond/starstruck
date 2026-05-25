@@ -250,10 +250,16 @@ EvtScript EVS_Idle = {
     End
 };
 
-s32 FlipPosOffsets[] = {
+s32 FlipPosOffsets1[] = {
     9, 16, 22, 26, 30, 32, 33,
-    32, 30, 26, 22, 16, 9,
-    0, 4, 6, 7, 6, 4, 0, 2, 0
+    32, 30, 26, 22, 16,
+    9, 0, 4, 6, 7, 6
+};
+
+s32 FlipPosOffsets2[] = {
+    5, 8, 11, 13, 15, 16, 17,
+    16, 15, 13, 11, 8,
+    5, 0, 4, 6, 7, 6
 };
 
 EvtScript EVS_HandleEvent = {
@@ -307,7 +313,7 @@ EvtScript EVS_HandleEvent = {
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_Hurt)
                 Call(GetStatusFlags, ACTOR_SELF, LVarA)
                 Call(SetActorRotationOffset, ACTOR_SELF, 0, 12, 0)
-                UseBuf(Ref(FlipPosOffsets))
+                UseBuf(Ref(FlipPosOffsets1))
                 Set(LVarA, 0)
                 // Loop(ARRAY_COUNT(FlipPosOffsets))
                 Loop(18)
@@ -325,7 +331,7 @@ EvtScript EVS_HandleEvent = {
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_ToppleIdle)
             Else
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Galoomba_ToppleIdle)
-                UseBuf(Ref(FlipPosOffsets))
+                UseBuf(Ref(FlipPosOffsets2))
                 Loop(18)
                     BufRead1(LVar0)
                     Call(SetActorDispOffset, ACTOR_SELF, 0, LVar0, 0)

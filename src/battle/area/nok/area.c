@@ -152,8 +152,9 @@ Formation A(Formation_19) = {
 };
 
 Formation A(Formation_1A) = {
-    OVL_ACTOR_BY_IDX("galoomba", BTL_POS_GROUND_B, 10),
-    OVL_ACTOR_BY_IDX("goomba", BTL_POS_GROUND_C, 9),
+    OVL_ACTOR_BY_IDX("goombo", BTL_POS_GROUND_A, 10),
+    OVL_ACTOR_BY_IDX("goomba", BTL_POS_GROUND_B, 9),
+    OVL_ACTOR_BY_IDX("galoomba", BTL_POS_GROUND_C, 8),
 };
 
 BattleList A(Formations) = {

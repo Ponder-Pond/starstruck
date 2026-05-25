@@ -526,6 +526,10 @@
 	Terratroopa[End]
 }
 
+#message:29:(EnemyName_Goombo) {
+	Goombo[End]
+}
+
 #message:29:(EnemyName_Galoomba) {
 	Galoomba[End]
 }

@@ -233,6 +233,7 @@
         <Sprite name="ParadeShyGuy"/>
         <Sprite name="ParadeTwink"/>
         <Sprite name="Leaf"/>
+        <Sprite name="Goombo"/>
         <Sprite name="Terratroopa"/>
         <Sprite name="Galoomba"/>
     </Sprites>
