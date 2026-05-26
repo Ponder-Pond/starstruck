@@ -121,6 +121,7 @@ EvtScript EVS_Init = {
     Call(BindTakeTurn, ACTOR_SELF, Ref(EVS_TakeTurn))
     Call(BindIdle, ACTOR_SELF, Ref(EVS_Idle))
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
+    Call(SetActorScale, ACTOR_SELF, Float(0.9), Float(0.9), Float(1.0))
     Return
     End
 };
@@ -178,7 +179,7 @@ EvtScript EVS_Idle = {
 EvtScript EVS_HandleEvent = {
     Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
-    Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(1.0), Float(1.0))
+    Call(SetActorScale, ACTOR_SELF, Float(0.9), Float(0.9), Float(1.0))
     Call(GetLastEvent, ACTOR_SELF, LVar0)
     Switch(LVar0)
         CaseOrEq(EVENT_HIT_COMBO)
@@ -224,7 +225,7 @@ EvtScript EVS_HandleEvent = {
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Dizzy)
             Call(SetGoalToHome, ACTOR_SELF)
-            Call(SetActorSpeed, ACTOR_SELF, Float(8.0))
+            Call(SetActorSpeed, ACTOR_SELF, Float(10.0)) // was 8.0
             Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Wait(5)
@@ -261,7 +262,7 @@ EvtScript EVS_HandleEvent = {
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Run)
             Call(SetGoalToHome, ACTOR_SELF)
-            Call(SetActorSpeed, ACTOR_SELF, Float(4.0))
+            Call(SetActorSpeed, ACTOR_SELF, Float(6.0)) // was 4.0
             Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(HPBarToHome, ACTOR_SELF)
@@ -315,7 +316,7 @@ EvtScript EVS_Attack_Headbonk = {
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Run)
     Call(SetGoalToTarget, ACTOR_SELF)
     Call(AddGoalPos, ACTOR_SELF, 50, 0, 0)
-    Call(SetActorSpeed, ACTOR_SELF, Float(4.5)) // Was 6.
+    Call(SetActorSpeed, ACTOR_SELF, Float(8.0)) // was 6.0
     Call(RunToGoal, ACTOR_SELF, 0, false)
     Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Idle)
     Call(SetActorDispOffset, ACTOR_SELF, 0, -1, 0)
@@ -339,7 +340,7 @@ EvtScript EVS_Attack_Headbonk = {
             Thread
                 Call(GetActorPos, ACTOR_SELF, LVar1, LVar2, LVar0)
                 Set(LVar0, 0)
-                Loop(16)
+                Loop(14)
                     Call(GetActorPos, ACTOR_SELF, LVar4, LVar5, LVar6)
                     Call(N(CalculateArcsinDeg), LVar1, LVar2, LVar4, LVar5, LVar0)
                     Call(SetActorRotation, ACTOR_SELF, 0, 0, LVar0)
@@ -353,15 +354,15 @@ EvtScript EVS_Attack_Headbonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 13, false, true, false) // Was 16.
+            Call(JumpToGoal, ACTOR_SELF, 14, false, true, false) // Was 16.
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Sleep)
-            Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(0.7), Float(1.0))
             Call(SetActorDispOffset, ACTOR_SELF, 0, 5, 0)
             Wait(1)
-            Call(SetActorScale, ACTOR_SELF, Float(1.3), Float(0.5), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(1.2), Float(0.4), Float(1.0))
             Call(SetActorDispOffset, ACTOR_SELF, 0, -2, 0)
             Wait(1)
-            Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(1.0), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(0.9), Float(0.9), Float(1.0))
             Call(SetActorDispOffset, ACTOR_SELF, 0, 7, 0)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Hurt)
             Wait(5)
@@ -387,7 +388,7 @@ EvtScript EVS_Attack_Headbonk = {
                 EndLoop
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 13, false, true, false) // Was 15
+            Call(JumpToGoal, ACTOR_SELF, 14, false, true, false) // Was 15
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Dizzy)
             Wait(5)
             Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
@@ -396,14 +397,14 @@ EvtScript EVS_Attack_Headbonk = {
             Call(AddActorDecoration, ACTOR_SELF, PRT_MAIN, 0, ACTOR_DECORATION_SWEAT)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetGoalToHome, ACTOR_SELF)
-            Call(SetActorSpeed, ACTOR_SELF, Float(6.0)) // Was 8.
+            Call(SetActorSpeed, ACTOR_SELF, Float(10.0)) // was 8.0
             Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
             Call(SetActorYaw, ACTOR_SELF, 0)
             Wait(5)
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Idle)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.6))
-            Call(JumpToGoal, ACTOR_SELF, 4, false, true, false) // Was 5.
+            Call(JumpToGoal, ACTOR_SELF, 4, false, true, false) // was 5
             Call(RemoveActorDecoration, ACTOR_SELF, PRT_MAIN, 0)
             Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
             Call(UseIdleAnimation, ACTOR_SELF, true)
@@ -415,7 +416,7 @@ EvtScript EVS_Attack_Headbonk = {
             Thread
                 Call(GetActorPos, ACTOR_SELF, LVar1, LVar2, LVar0)
                 Set(LVar0, 0)
-                Loop(16)
+                Loop(14)
                     Call(GetActorPos, ACTOR_SELF, LVar4, LVar5, LVar6)
                     Call(N(CalculateArcsinDeg), LVar1, LVar2, LVar4, LVar5, LVar0)
                     Call(SetActorRotation, ACTOR_SELF, 0, 0, LVar0)
@@ -429,11 +430,11 @@ EvtScript EVS_Attack_Headbonk = {
                 Wait(6)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Midair)
             EndThread
-            Call(JumpToGoal, ACTOR_SELF, 13, false, true, false) // Was 16.
+            Call(JumpToGoal, ACTOR_SELF, 14, false, true, false) // Was 16.
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Tense)
-            Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(0.7), Float(1.0))
             Wait(1)
-            Call(SetActorScale, ACTOR_SELF, Float(1.3), Float(0.5), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(1.2), Float(0.4), Float(1.0))
             Wait(1)
     EndSwitch
     Call(EnemyDamageTarget, ACTOR_SELF, LVar0, 0, 0, 0, dmgHeadbonk, BS_FLAGS1_TRIGGER_EVENTS)
@@ -441,9 +442,9 @@ EvtScript EVS_Attack_Headbonk = {
         CaseOrEq(HIT_RESULT_HIT)
         CaseOrEq(HIT_RESULT_NO_DAMAGE)
             Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
-            Call(SetActorScale, ACTOR_SELF, Float(1.1), Float(0.8), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(0.7), Float(1.0))
             Wait(1)
-            Call(SetActorScale, ACTOR_SELF, Float(1.0), Float(1.0), Float(1.0))
+            Call(SetActorScale, ACTOR_SELF, Float(0.9), Float(0.9), Float(1.0))
             Wait(1)
             Call(SetActorRotation, ACTOR_SELF, 0, 0, 0)
             Call(SetActorDispOffset, ACTOR_SELF, 0, 0, 0)
@@ -453,20 +454,20 @@ EvtScript EVS_Attack_Headbonk = {
             Set(LVar1, 0)
             Call(SetActorJumpGravity, ACTOR_SELF, Float(1.8))
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 8, false, true, false) // Was 10.
+            Call(JumpToGoal, ACTOR_SELF, 9, false, true, false) // Was 10
             Add(LVar0, 30)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 6, false, true, false) // Was 8.
+            Call(JumpToGoal, ACTOR_SELF, 7, false, true, false) // Was 8
             Add(LVar0, 20)
             Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false) // Was 6.
+            Call(JumpToGoal, ACTOR_SELF, 5, false, true, false) // Was 6
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Idle)
             Wait(3)
             Call(YieldTurn)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
             Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Goombo_Run)
             Call(SetGoalToHome, ACTOR_SELF)
-            Call(SetActorSpeed, ACTOR_SELF, Float(6.0)) // Was 8.
+            Call(SetActorSpeed, ACTOR_SELF, Float(10.0)) // was 8.0
             Call(RunToGoal, ACTOR_SELF, 0, false)
             Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
         EndCaseGroup
