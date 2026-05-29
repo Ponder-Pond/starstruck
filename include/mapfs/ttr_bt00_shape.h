@@ -1,0 +1,25 @@
+#define MODEL_Root              0x17
+#define MODEL_bowserportrait    0x16
+#define MODEL_jar               0x15
+#define MODEL_papers            0x14
+#define MODEL_yoshineon         0x13
+#define MODEL_flagpole          0x12
+#define MODEL_boxright          0x11
+#define MODEL_boxleft           0x10
+#define MODEL_stepsright        0xF
+#define MODEL_stepsleft         0xE
+#define MODEL_curtainright      0xD
+#define MODEL_curtainleft       0xC
+#define MODEL_curtaintopright   0xB
+#define MODEL_curtaintopmid     0xA
+#define MODEL_curtaintopleft    0x9
+#define MODEL_backwall          0x8
+#define MODEL_audienceseats     0x7
+#define MODEL_o287              0x6
+#define MODEL_o287              0x5
+#define MODEL_waku3             0x4
+#define MODEL_yuka              0x3
+#define MODEL_waku2             0x2
+#define MODEL_waku              0x1
+#define MODEL_yuka2             0x0
+

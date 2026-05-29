@@ -236,5 +236,7 @@
         <Sprite name="Goombo"/>
         <Sprite name="Terratroopa"/>
         <Sprite name="Galoomba"/>
+        <Sprite name="BooBully"/>
+        <Sprite name="Tatanga"/>
     </Sprites>
 </Names>

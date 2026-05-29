@@ -2980,3 +2980,13 @@
 	[Style right]
 	This is a Galoomba.[BR][Wait][End]
 }
+
+#message:1C:(EnemyTattle_Boo) {
+	[Style right]
+	This is a Boo.[BR][Wait][End]
+}
+
+#message:1C:(EnemyTattle_Chikako) {
+	[Style right]
+	This is a Chikako.[BR][Wait][End]
+}

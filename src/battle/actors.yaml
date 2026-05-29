@@ -2367,3 +2367,25 @@
     stepDelay: [ 30, 30 ]
     tattleCamOffset: [ 0, 5, 0 ]
     shadowOffset: 0
+- Boo:
+    level: 10
+    nameMsg: MSG_EnemyName_Boo
+    tattleMsg: MSG_EnemyTattle_Boo
+    walkSound: [ SOUND_NONE, SOUND_NONE ]
+    flySound: [ SOUND_NONE, SOUND_NONE ]
+    jumpSound: SOUND_NONE
+    hurtSound: SOUND_ACTOR_HURT
+    stepDelay: [ 30, 30 ]
+    tattleCamOffset: [ 0, 0, 0 ]
+    shadowOffset: 0
+- Chikako:
+    level: 0
+    nameMsg: MSG_EnemyName_Chikako
+    tattleMsg: MSG_EnemyTattle_Chikako # TODO
+    walkSound: [ SOUND_NONE, SOUND_NONE ]
+    flySound: [ SOUND_NONE, SOUND_NONE ]
+    jumpSound: SOUND_ACTOR_JUMP
+    hurtSound: SOUND_ACTOR_HURT
+    stepDelay: [ 30, 30 ]
+    tattleCamOffset: [ 0, 0, 0 ]
+    shadowOffset: 0

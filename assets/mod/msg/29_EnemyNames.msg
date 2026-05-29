@@ -533,3 +533,11 @@
 #message:29:(EnemyName_Galoomba) {
 	Galoomba[End]
 }
+
+#message:29:(EnemyName_Boo) {
+	Boo[End]
+}
+
+#message:29:(EnemyName_Chikako) {
+	Chikako[End]
+}
