@@ -31,5 +31,5 @@ enum {
 extern EvtScript N(EVS_Main);
 extern EvtScript N(EVS_MakeEntities);
 extern EvtScript N(EVS_SetupZipline);
-extern EvtScript N(EVS_SyncZiplineDummyNPC);
-extern NpcGroupList N(DefaultNPCs);
+// extern EvtScript N(EVS_SyncZiplineDummyNPC);
+// extern NpcGroupList N(DefaultNPCs);

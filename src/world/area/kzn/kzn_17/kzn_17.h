@@ -25,7 +25,7 @@ enum {
 
 extern EvtScript N(EVS_Main);
 extern EvtScript N(EVS_SetupSpinyTromp);
-extern EvtScript N(EVS_Kolorado_TrompPanic);
-extern EvtScript N(EVS_Kolorado_TrompImpact);
+// extern EvtScript N(EVS_Kolorado_TrompPanic);
+// extern EvtScript N(EVS_Kolorado_TrompImpact);
 extern EvtScript N(EVS_MakeEntities);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

@@ -191,7 +191,7 @@ EvtScript N(EVS_SetupZiplines) = {
     Set(ArrayVar(5), -46)
     Set(ArrayVar(6), NPC_ZiplineDummy1)
     BindTrigger(Ref(N(EVS_RideZipline)), TRIGGER_FLOOR_PRESS_A, COLLIDER_ropeway1, 1, 0)
-    Exec(N(EVS_SyncZiplineDummyNPC1))
+    // Exec(N(EVS_SyncZiplineDummyNPC1))
     MallocArray(7, LVar0)
     UseArray(LVar0)
     Set(ArrayVar(0), Ref(N(Zipline_Endpoints2)))
@@ -202,7 +202,7 @@ EvtScript N(EVS_SetupZiplines) = {
     Set(ArrayVar(5), 265)
     Set(ArrayVar(6), NPC_ZiplineDummy2)
     BindTrigger(Ref(N(EVS_RideZipline)), TRIGGER_FLOOR_PRESS_A, COLLIDER_ropeway2, 1, 0)
-    Exec(N(EVS_SyncZiplineDummyNPC2))
+    // Exec(N(EVS_SyncZiplineDummyNPC2))
     Return
     End
 };

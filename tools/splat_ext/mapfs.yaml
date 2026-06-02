@@ -2,6 +2,9 @@
 - ttr_bt00_shape
 - ttr_bt00_hit
 
+- tst_00_shape
+- tst_00_hit
+
 # Vanilla
 # - dro_01_shape
 # - dro_01_hit
@@ -299,10 +302,6 @@
 # - tik_23_hit
 # - tik_25_shape
 # - tik_25_hit
-- kgr_01_shape
-- kgr_01_hit
-- kgr_02_shape
-- kgr_02_hit
 # - nok_01_shape
 # - nok_01_hit
 # - nok_02_shape
@@ -421,28 +420,28 @@
 # - sbk_66_hit
 # - sbk_99_shape
 # - sbk_99_hit
-- trd_00_shape
-- trd_00_hit
-- trd_01_shape
-- trd_01_hit
-- trd_02_shape
-- trd_02_hit
-- trd_03_shape
-- trd_03_hit
-- trd_04_shape
-- trd_04_hit
-- trd_05_shape
-- trd_05_hit
-- trd_06_shape
-- trd_06_hit
-- trd_07_shape
-- trd_07_hit
-- trd_08_shape
-- trd_08_hit
-- trd_09_shape
-- trd_09_hit
-- trd_10_shape
-- trd_10_hit
+# - trd_00_shape
+# - trd_00_hit
+# - trd_01_shape
+# - trd_01_hit
+# - trd_02_shape
+# - trd_02_hit
+# - trd_03_shape
+# - trd_03_hit
+# - trd_04_shape
+# - trd_04_hit
+# - trd_05_shape
+# - trd_05_hit
+# - trd_06_shape
+# - trd_06_hit
+# - trd_07_shape
+# - trd_07_hit
+# - trd_08_shape
+# - trd_08_hit
+# - trd_09_shape
+# - trd_09_hit
+# - trd_10_shape
+# - trd_10_hit
 # - tst_01_shape
 # - tst_01_hit
 # - tst_02_shape

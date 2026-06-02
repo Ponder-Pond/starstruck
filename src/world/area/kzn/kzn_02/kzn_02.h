@@ -20,4 +20,4 @@ extern EvtScript N(EVS_Main);
 extern EvtScript N(EVS_InitializePlatforms);
 extern EvtScript N(EVS_PlayDemoScene);
 extern EvtScript N(EVS_KoloradoSinkingPlatform);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

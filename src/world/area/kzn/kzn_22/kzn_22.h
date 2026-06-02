@@ -19,4 +19,4 @@ enum {
 extern EvtScript N(EVS_Main);
 extern EvtScript N(EVS_SetupMusic);
 extern EvtScript N(EVS_MakeEntities);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

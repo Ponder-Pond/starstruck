@@ -185,7 +185,7 @@ EvtScript N(EVS_SetupZipline) = {
     Set(ArrayVar(5), -45)
     Set(ArrayVar(6), NPC_ZiplineDummy)
     BindTrigger(N(EVS_RideZipline), TRIGGER_FLOOR_PRESS_A, COLLIDER_ropeway, 1, 0)
-    Exec(N(EVS_SyncZiplineDummyNPC))
+    // Exec(N(EVS_SyncZiplineDummyNPC))
     Return
     End
 };

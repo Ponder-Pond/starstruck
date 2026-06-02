@@ -134,17 +134,17 @@ EvtScript N(EVS_Main) = {
     IfNe(LVar0, kmr_02_ENTRY_4)
         Goto(10)
     EndIf
-    Call(MakeNpcs, false, Ref(N(EpilogueNPCs)))
+    // Call(MakeNpcs, false, Ref(N(EpilogueNPCs)))
     Exec(N(EVS_FadeOutMusic))
     Return
     Label(10)
     Switch(GB_StoryProgress)
         CaseEq(STORY_UNUSED_FFFFFF8C)
-            Call(MakeNpcs, false, Ref(N(NpcGroup1)))
+            // Call(MakeNpcs, false, Ref(N(NpcGroup1)))
         CaseLt(STORY_UNUSED_FFFFFF8C)
-            Call(MakeNpcs, false, Ref(N(PrologueNPCs)))
+            // Call(MakeNpcs, false, Ref(N(PrologueNPCs)))
         CaseDefault
-            Call(MakeNpcs, false, Ref(N(DefaultNPCs)))
+            // Call(MakeNpcs, false, Ref(N(DefaultNPCs)))
     EndSwitch
     Label(20)
     Call(ClearDefeatedEnemies)

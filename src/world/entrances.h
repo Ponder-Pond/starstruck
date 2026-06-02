@@ -1,6 +1,10 @@
 #ifndef _ENTRANCES_H_
 #define _ENTRANCES_H_
 
+enum NewMapEntrances {
+    tst_00_ENTRY_0 = 0,
+};
+
 enum {
     kmr_00_ENTRY_0   = 0,
     kmr_02_ENTRY_0   = 0,

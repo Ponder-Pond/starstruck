@@ -15,9 +15,9 @@ EvtScript N(EVS_Main) = {
     Call(SetSpriteShading, SHADING_NONE)
     EVT_SETUP_CAMERA_DEFAULT(0, 0, 0)
     IfEq(GF_KMR02_ReturnedWithGoompa, false)
-        Call(MakeNpcs, false, Ref(N(NpcsBefore)))
+        // Call(MakeNpcs, false, Ref(N(NpcsBefore)))
     Else
-        Call(MakeNpcs, false, Ref(N(NpcsAfter)))
+        // Call(MakeNpcs, false, Ref(N(NpcsAfter)))
     EndIf
     ExecWait(N(EVS_MakeEntities))
     Exec(N(EVS_SetupMusic))
@@ -30,7 +30,7 @@ EvtScript N(EVS_Main) = {
     Call(GetEntryID, LVar0)
     IfEq(LVar0, kmr_05_ENTRY_0)
         IfEq(GF_KMR05_EnemyWarning, false)
-            Exec(N(EVS_GoompaRemark))
+            // Exec(N(EVS_GoompaRemark))
             Set(GF_KMR05_EnemyWarning, true)
         EndIf
     EndIf

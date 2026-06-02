@@ -193,15 +193,15 @@ EvtScript N(EVS_Main) = {
     EVT_SETUP_CAMERA_DEFAULT(0, 0, 0)
     Call(GetEntryID, LVar0)
     IfEq(LVar0, kzn_19_ENTRY_3)
-        Call(MakeNpcs, true, Ref(N(EscapeNPCs)))
+        // Call(MakeNpcs, true, Ref(N(EscapeNPCs)))
     Else
-        Call(MakeNpcs, true, Ref(N(BossNPCs)))
+        // Call(MakeNpcs, true, Ref(N(BossNPCs)))
     EndIf
     ExecWait(N(EVS_MakeEntities))
     Call(GetEntryID, LVar0)
     IfEq(LVar0, kzn_19_ENTRY_3)
         Thread
-            ExecWait(N(EVS_Misstar_Escape))
+            // ExecWait(N(EVS_Misstar_Escape))
             Exec(N(EVS_BindExitTriggers))
         EndThread
     Else

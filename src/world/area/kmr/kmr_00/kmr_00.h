@@ -40,4 +40,4 @@ extern EvtScript N(EVS_Main);
 extern EvtScript N(EVS_SetupMusic);
 extern EvtScript N(EVS_MakeEntities);
 extern EvtScript N(EVS_Scene_MarioRevived);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

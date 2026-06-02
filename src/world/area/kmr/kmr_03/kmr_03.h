@@ -30,4 +30,4 @@ extern EvtScript N(EVS_SetupFoliage);
 extern EvtScript N(EVS_SetupMusic);
 extern EvtScript N(EVS_MakeEntities);
 extern EvtScript N(EVS_Scene_FallingDown);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

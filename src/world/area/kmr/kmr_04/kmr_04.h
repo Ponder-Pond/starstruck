@@ -35,4 +35,4 @@ extern EvtScript N(EVS_SetJrTroopaMusic);
 extern EvtScript N(EVS_PlayUpgradeSong);
 extern EvtScript N(EVS_SetupFoliage);
 extern EvtScript N(EVS_MakeEntities);
-extern NpcGroupList N(DefaultNPCs);
+// extern NpcGroupList N(DefaultNPCs);

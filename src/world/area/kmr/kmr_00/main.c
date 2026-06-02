@@ -14,8 +14,8 @@ EvtScript N(EVS_Main) = {
     EVT_SETUP_CAMERA_NO_LEAD(0, 0, 0)
     Set(GF_MAP_GoombaVillage, true)
     IfLt(GB_StoryProgress, STORY_CH0_MET_INNKEEPER)
-        Call(MakeNpcs, false, Ref(N(DefaultNPCs)))
-        Call(ClearDefeatedEnemies)
+        // Call(MakeNpcs, false, Ref(N(DefaultNPCs)))
+        // Call(ClearDefeatedEnemies)
     EndIf
     ExecWait(N(EVS_MakeEntities))
     Exec(N(EVS_SetupMusic))

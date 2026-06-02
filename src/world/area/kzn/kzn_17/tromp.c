@@ -70,7 +70,7 @@ EvtScript N(EVS_SetupSpinyTromp) = {
         Goto(0)
     EndIf
     ExecGetTID(N(EVS_SpinyTromp_ManageCamera), LVarA)
-    Exec(N(EVS_Kolorado_TrompPanic))
+    // Exec(N(EVS_Kolorado_TrompPanic))
     ExecGetTID(N(EVS_SpinyTromp_ShakeCam), MV_ScreenShakeTID)
     Call(PlaySound, SOUND_LOOP_TROMP_ROLL)
     Set(LVar3, 0)
@@ -106,7 +106,7 @@ EvtScript N(EVS_SetupSpinyTromp) = {
         EndIf
         IfEq(AF_KZN_Tromp2_HitKolorado, false)
             IfGt(LVar0, 430)
-                Exec(N(EVS_Kolorado_TrompImpact))
+                // Exec(N(EVS_Kolorado_TrompImpact))
                 Set(AF_KZN_Tromp2_HitKolorado, true)
             EndIf
         EndIf

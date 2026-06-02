@@ -8388,25 +8388,6 @@ segments:
   #   - [auto, c, music]
   #   - [auto, c, main]
   #   - [auto, c, entity]
-  - name: kgr_01
-    dir: world/area/kgr/kgr_01
-    type: code
-    start: 0x8A9A10
-    vram_class: map
-    subsegments:
-    - [auto, c, main]
-    - [auto, c, wiggle]
-    - [auto, c, extra]
-  - name: kgr_02
-    dir: world/area/kgr/kgr_02
-    type: code
-    start: 0x8AA450
-    vram_class: map
-    subsegments:
-    - [auto, c, main]
-    - [auto, c, unused]
-    - [auto, c, npc]
-    - [auto, c, extra]
   - name: kmr_00
     dir: world/area/kmr/kmr_00
     type: code
@@ -9400,121 +9381,121 @@ segments:
   #   - [auto, c, music]
   #   - [auto, c, main]
   #   - [auto, c, entity]
-  - name: trd_00
-    dir: world/area/trd/trd_00
-    type: code
-    start: 0x999C70
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: trd_01
-    dir: world/area/trd/trd_01
-    type: code
-    start: 0x99C990
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: trd_02
-    dir: world/area/trd/trd_02
-    type: code
-    start: 0x9A0FE0
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: trd_03
-    dir: world/area/trd/trd_03
-    type: code
-    start: 0x9A4650
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-    - [auto, c, puzzle]
-  - name: trd_04
-    dir: world/area/trd/trd_04
-    type: code
-    start: 0x9A83F0
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: trd_05
-    dir: world/area/trd/trd_05
-    type: code
-    start: 0x9AE700
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, trap]
-    - [auto, c, npc]
-  - name: trd_06
-    dir: world/area/trd/trd_06
-    type: code
-    start: 0x9B1790
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, falling]
-    - [auto, c, npc_prisoners]
-    - [auto, c, npc_koopa_bros]
-    - [auto, c, entity]
-  - name: trd_07
-    dir: world/area/trd/trd_07
-    type: code
-    start: 0x9B6980
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, magic_doors]
-  - name: trd_08
-    dir: world/area/trd/trd_08
-    type: code
-    start: 0x9BB2A0
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-  - name: trd_09
-    dir: world/area/trd/trd_09
-    type: code
-    start: 0x9BD660
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, entity]
-    - [auto, c, npc]
-    - [auto, c, demo]
-  - name: trd_10
-    dir: world/area/trd/trd_10
-    type: code
-    start: 0x9C2910
-    vram_class: map
-    subsegments:
-    - [auto, c, settings]
-    - [auto, c, main]
-    - [auto, c, npc]
-    - [auto, c, fake_bowser]
+  # - name: trd_00
+  #   dir: world/area/trd/trd_00
+  #   type: code
+  #   start: 0x999C70
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  # - name: trd_01
+  #   dir: world/area/trd/trd_01
+  #   type: code
+  #   start: 0x99C990
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  # - name: trd_02
+  #   dir: world/area/trd/trd_02
+  #   type: code
+  #   start: 0x9A0FE0
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  # - name: trd_03
+  #   dir: world/area/trd/trd_03
+  #   type: code
+  #   start: 0x9A4650
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  #   - [auto, c, puzzle]
+  # - name: trd_04
+  #   dir: world/area/trd/trd_04
+  #   type: code
+  #   start: 0x9A83F0
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  # - name: trd_05
+  #   dir: world/area/trd/trd_05
+  #   type: code
+  #   start: 0x9AE700
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, trap]
+  #   - [auto, c, npc]
+  # - name: trd_06
+  #   dir: world/area/trd/trd_06
+  #   type: code
+  #   start: 0x9B1790
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, falling]
+  #   - [auto, c, npc_prisoners]
+  #   - [auto, c, npc_koopa_bros]
+  #   - [auto, c, entity]
+  # - name: trd_07
+  #   dir: world/area/trd/trd_07
+  #   type: code
+  #   start: 0x9B6980
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, npc]
+  #   - [auto, c, magic_doors]
+  # - name: trd_08
+  #   dir: world/area/trd/trd_08
+  #   type: code
+  #   start: 0x9BB2A0
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  # - name: trd_09
+  #   dir: world/area/trd/trd_09
+  #   type: code
+  #   start: 0x9BD660
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, entity]
+  #   - [auto, c, npc]
+  #   - [auto, c, demo]
+  # - name: trd_10
+  #   dir: world/area/trd/trd_10
+  #   type: code
+  #   start: 0x9C2910
+  #   vram_class: map
+  #   subsegments:
+  #   - [auto, c, settings]
+  #   - [auto, c, main]
+  #   - [auto, c, npc]
+  #   - [auto, c, fake_bowser]
   # - name: nok_01
   #   dir: world/area/nok/nok_01
   #   type: code
