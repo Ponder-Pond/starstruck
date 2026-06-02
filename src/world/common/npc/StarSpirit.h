@@ -6,7 +6,7 @@
 #include "sprite/npc/WorldMisstar.h"
 #include "sprite/npc/WorldKlevar.h"
 #include "sprite/npc/WorldKalmar.h"
-#include "sprite/npc/StarMan.h"
+// #include "sprite/npc/StarMan.h"
 #include "sprite/npc/Twink.h"
 
 #define ELDSTAR_ANIMS \

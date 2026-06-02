@@ -7,7 +7,7 @@
 #include "world/common/enemy/Clubba.h"
 #include "world/common/enemy/TubbaBlubba_Patrol.inc.c"
 #include "world/common/enemy/TubbaBlubba.inc.c"
-#include "world/common/npc/Yakkey.inc.c"
+// #include "world/common/npc/Yakkey.inc.c"
 
 #include "world/common/todo/UnkFunc1.inc.c"
 

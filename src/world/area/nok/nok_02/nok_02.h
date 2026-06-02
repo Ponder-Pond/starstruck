@@ -16,9 +16,9 @@
 #include "sprite/npc/WorldKooper.h"
 #include "sprite/npc/WorldBobomb.h"
 #include "sprite/npc/WorldBombette.h"
-#include "sprite/npc/Kolorado.h"
-#include "sprite/npc/KoloradoWife.h"
-#include "sprite/npc/KoopaKoot.h"
+// #include "sprite/npc/Kolorado.h"
+// #include "sprite/npc/KoloradoWife.h"
+// #include "sprite/npc/KoopaKoot.h"
 
 enum {
     NPC_Koopa_01                = 0,

@@ -387,14 +387,14 @@ EvtScript N(EVS_Scene_YakkeyShouts) = {
     Call(SetCamPosB, CAM_DEFAULT, 800, 245)
     Call(SetPanTarget, CAM_DEFAULT, LVar0, LVar1, LVar2)
     Call(PanToTarget, CAM_DEFAULT, 0, true)
-    Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 5, MSG_CH3_00F6)
+    // Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 5, MSG_CH3_00F6)
     Wait(15)
-    Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 5, MSG_CH3_00F7)
+    // Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 5, MSG_CH3_00F7)
     Call(ShowChoice, MSG_Choice_000D)
     IfEq(LVar0, 0)
-        Call(ContinueSpeech, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 0, MSG_CH3_00F8)
+        // Call(ContinueSpeech, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 0, MSG_CH3_00F8)
     Else
-        Call(ContinueSpeech, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 0, MSG_CH3_00F9)
+        // Call(ContinueSpeech, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 0, MSG_CH3_00F9)
     EndIf
     Call(GetPlayerPos, LVar0, LVar1, LVar2)
     Call(SetCamSpeed, CAM_DEFAULT, Float(4.0))
@@ -405,7 +405,7 @@ EvtScript N(EVS_Scene_YakkeyShouts) = {
     Call(WaitForCam, CAM_DEFAULT, Float(1.0))
     Thread
         Set(MF_Sync_YakkeyDialogue, false)
-        Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 517, MSG_CH3_00FA)
+        // Call(SpeakToPlayer, NPC_SELF, ANIM_Yakkey_Talk, ANIM_Yakkey_Idle, 517, MSG_CH3_00FA)
         Set(MF_Sync_YakkeyDialogue, true)
     EndThread
     Call(GetPlayerPos, LVar0, LVar1, LVar2)
@@ -523,24 +523,24 @@ NpcData N(NpcData_Yakkey) = {
     .settings = &N(NpcSettings_Yakkey),
     .flags = ENEMY_FLAG_PASSIVE | ENEMY_FLAG_FLYING,
     .drops = NO_DROPS,
-    .animations = {
-        .idle   = ANIM_Yakkey_Idle,
-        .walk   = ANIM_Yakkey_Idle,
-        .run    = ANIM_Yakkey_Idle,
-        .chase  = ANIM_Yakkey_Idle,
-        .anim_4 = ANIM_Yakkey_Idle,
-        .anim_5 = ANIM_Yakkey_Idle,
-        .death  = ANIM_Yakkey_Idle,
-        .hit    = ANIM_Yakkey_Idle,
-        .anim_8 = ANIM_Yakkey_Idle,
-        .anim_9 = ANIM_Yakkey_Idle,
-        .anim_A = ANIM_Yakkey_Idle,
-        .anim_B = ANIM_Yakkey_Idle,
-        .anim_C = ANIM_Yakkey_Idle,
-        .anim_D = ANIM_Yakkey_Idle,
-        .anim_E = ANIM_Yakkey_Idle,
-        .anim_F = ANIM_Yakkey_Idle,
-    },
+    // .animations = {
+    //     .idle   = ANIM_Yakkey_Idle,
+    //     .walk   = ANIM_Yakkey_Idle,
+    //     .run    = ANIM_Yakkey_Idle,
+    //     .chase  = ANIM_Yakkey_Idle,
+    //     .anim_4 = ANIM_Yakkey_Idle,
+    //     .anim_5 = ANIM_Yakkey_Idle,
+    //     .death  = ANIM_Yakkey_Idle,
+    //     .hit    = ANIM_Yakkey_Idle,
+    //     .anim_8 = ANIM_Yakkey_Idle,
+    //     .anim_9 = ANIM_Yakkey_Idle,
+    //     .anim_A = ANIM_Yakkey_Idle,
+    //     .anim_B = ANIM_Yakkey_Idle,
+    //     .anim_C = ANIM_Yakkey_Idle,
+    //     .anim_D = ANIM_Yakkey_Idle,
+    //     .anim_E = ANIM_Yakkey_Idle,
+    //     .anim_F = ANIM_Yakkey_Idle,
+    // },
 };
 
 NpcGroupList N(DefaultNPCs) = {

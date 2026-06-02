@@ -16,7 +16,7 @@
 #include "sprite/npc/WorldMuskular.h"
 #include "sprite/npc/WorldMisstar.h"
 #include "sprite/npc/WorldKlevar.h"
-#include "sprite/npc/Goombaria.h"
+// #include "sprite/npc/Goombaria.h"
 
 enum {
     NPC_Goombaria               = 0,

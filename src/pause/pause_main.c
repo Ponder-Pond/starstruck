@@ -3,9 +3,9 @@
 #include "sprite.h"
 #include "pause/pause_common.h"
 #include "game_modes.h"
-#include "sprite/npc/Goombaria.h"
+// #include "sprite/npc/Goombaria.h"
 #include "sprite/npc/WorldGoombario.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 
 extern MenuPanel gPausePanelTabs;
 extern MenuPanel gPausePanelStats;
@@ -102,9 +102,9 @@ u8 gPauseMenuPageScrollInterpEasingLUT[] = { 0, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6,
 
 s32 gPauseTutorialSpriteAnims[][4] = {
     {
-        ANIM_Goombaria_Still,
-        ANIM_Goombaria_Idle,
-        ANIM_Goombaria_Talk,
+        // ANIM_Goombaria_Still,
+        // ANIM_Goombaria_Idle,
+        // ANIM_Goombaria_Talk,
         ANIM_LIST_END
     },
     {
@@ -114,9 +114,9 @@ s32 gPauseTutorialSpriteAnims[][4] = {
         ANIM_LIST_END
     },
     {
-        ANIM_Goompa_Still,
-        ANIM_Goompa_Idle,
-        ANIM_Goompa_Talk,
+        // ANIM_Goompa_Still,
+        // ANIM_Goompa_Idle,
+        // ANIM_Goompa_Talk,
         ANIM_LIST_END
     }
 };

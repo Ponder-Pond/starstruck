@@ -9,7 +9,7 @@
 #include "mapfs/kmr_05_shape.h"
 #include "mapfs/kmr_05_hit.h"
 
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 #include "sprite/npc/Goomba.h"
 #include "sprite/npc/SpikedGoomba.h"
 #include "sprite/npc/Paragoomba.h"

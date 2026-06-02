@@ -1,6 +1,6 @@
 #include "battle/battle.h"
 #include "script_api/battle.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 
 #define NAMESPACE battle_partner_goompa
 
@@ -27,7 +27,7 @@ enum N(ActorParams) {
 };
 
 s32 N(DefaultAnims)[] = {
-    STATUS_KEY_NORMAL,    ANIM_Goompa_Walk,
+    STATUS_KEY_NORMAL,    0,
     STATUS_END,
 };
 
@@ -108,37 +108,37 @@ EvtScript N(EVS_HandleEvent) = {
         CaseOrEq(EVENT_HIT_COMBO)
         CaseOrEq(EVENT_HIT)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Goompa_Injured)
+            SetConst(LVar1, 0)
             ExecWait(EVS_Enemy_Hit)
         EndCaseGroup
         CaseOrEq(EVENT_ZERO_DAMAGE)
         CaseOrEq(EVENT_IMMUNE)
             Call(PlaySound, SOUND_NO_DAMGE)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Goompa_Injured)
+            SetConst(LVar1, 0)
             ExecWait(EVS_Enemy_NoDamageHit)
         EndCaseGroup
         CaseEq(EVENT_SPIKE_CONTACT)
-            SetConst(LVar1, ANIM_Goompa_Injured)
-            SetConst(LVar2, ANIM_Goompa_Run)
-            SetConst(LVar3, ANIM_Goompa_Idle)
+            SetConst(LVar1, 0)
+            SetConst(LVar2, 0)
+            SetConst(LVar3, 0)
             ExecWait(EVS_Partner_SpikeContact)
         CaseEq(EVENT_BURN_CONTACT)
-            SetConst(LVar0, ANIM_Goompa_Injured)
-            SetConst(LVar1, ANIM_Goompa_Injured)
-            SetConst(LVar2, ANIM_Goompa_Injured)
-            SetConst(LVar3, ANIM_Goompa_Run)
-            SetConst(LVar4, ANIM_Goompa_Idle)
+            SetConst(LVar0, 0)
+            SetConst(LVar1, 0)
+            SetConst(LVar2, 0)
+            SetConst(LVar3, 0)
+            SetConst(LVar4, 0)
             ExecWait(EVS_Partner_BurnContact)
         CaseEq(EVENT_BURN_HIT)
             SetConst(LVar0, 0)
-            SetConst(LVar1, ANIM_Goompa_Injured)
+            SetConst(LVar1, 0)
             ExecWait(EVS_Enemy_Hit)
         CaseEq(EVENT_33)
         CaseEq(EVENT_RECOVER_FROM_KO)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Goompa_Idle)
-            SetConst(LVar2, ANIM_Goompa_Run)
+            SetConst(LVar1, 0)
+            SetConst(LVar2, 0)
             ExecWait(EVS_Partner_Recover)
         CaseDefault
     EndSwitch
@@ -165,8 +165,8 @@ EvtScript N(EVS_TakeTurn) = {
 
 EvtScript N(EVS_Celebrate) = {
     SetConst(LVar0, PRT_MAIN)
-    SetConst(LVar1, ANIM_Goompa_Celebrate)
-    SetConst(LVar2, ANIM_Goompa_Walk)
+    SetConst(LVar1, 0)
+    SetConst(LVar2, 0)
     ExecWait(EVS_Partner_Celebrate)
     Return
     End
@@ -174,7 +174,7 @@ EvtScript N(EVS_Celebrate) = {
 
 EvtScript N(runAway) = {
     SetConst(LVar0, PRT_MAIN)
-    SetConst(LVar1, ANIM_Goompa_Run)
+    SetConst(LVar1, 0)
     ExecWait(EVS_Partner_RunAway)
     Return
     End
@@ -183,10 +183,10 @@ EvtScript N(runAway) = {
 EvtScript N(runAwayFail) = {
     Call(SetGoalToHome, ACTOR_PARTNER)
     Call(SetActorSpeed, ACTOR_PARTNER, Float(6.0))
-    Call(SetAnimation, ACTOR_PARTNER, -1, ANIM_Goompa_Run)
+    Call(SetAnimation, ACTOR_PARTNER, -1, 0)
     Call(SetActorYaw, ACTOR_PARTNER, 0)
     Call(RunToGoal, ACTOR_PARTNER, 0)
-    Call(SetAnimation, ACTOR_PARTNER, -1, ANIM_Goompa_Idle)
+    Call(SetAnimation, ACTOR_PARTNER, -1, 0)
     Return
     End
 };

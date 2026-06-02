@@ -1,9 +1,9 @@
 #include "common.h"
-#include "sprite/npc/Goompa.h"
-#include "sprite/npc/Gooma.h"
-#include "sprite/npc/Goompapa.h"
-#include "sprite/npc/Goomama.h"
-#include "sprite/npc/Goombaria.h"
+// #include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Gooma.h"
+// #include "sprite/npc/Goompapa.h"
+// #include "sprite/npc/Goomama.h"
+// #include "sprite/npc/Goombaria.h"
 
 #define GOOMPA_ANIMS \
 { \

@@ -51,11 +51,11 @@ API_CALLABLE(N(AnimateBlockScale)) {
 EvtScript N(EVS_OnSmash_GateBlock) = {
     Call(DisablePlayerInput, true)
     Wait(20 * DT)
-    Call(SpeakToPlayer, NPC_Goompapa, ANIM_Goompapa_Talk, ANIM_Goompapa_Idle, 0, MSG_CH0_0066)
+    // Call(SpeakToPlayer, NPC_Goompapa, ANIM_Goompapa_Talk, ANIM_Goompapa_Idle, 0, MSG_CH0_0066)
     Wait(10 * DT)
     Call(N(PlayerHasBadgeEquipped))
     IfEq(LVar0, false)
-        Call(SpeakToPlayer, NPC_Goompapa, ANIM_Goompapa_Talk, ANIM_Goompapa_Idle, 0, MSG_CH0_0067)
+        // Call(SpeakToPlayer, NPC_Goompapa, ANIM_Goompapa_Talk, ANIM_Goompapa_Idle, 0, MSG_CH0_0067)
         Wait(10 * DT)
     EndIf
     Call(ModifyColliderFlags, MODIFY_COLLIDER_FLAGS_SET_BITS, COLLIDER_tt2, COLLIDER_FLAGS_UPPER_MASK)

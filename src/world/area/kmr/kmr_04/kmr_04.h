@@ -9,7 +9,7 @@
 #include "mapfs/kmr_04_shape.h"
 #include "mapfs/kmr_04_hit.h"
 
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 #include "sprite/npc/JrTroopa.h"
 
 enum {

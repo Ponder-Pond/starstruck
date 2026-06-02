@@ -19,7 +19,7 @@
 #include "sprite/npc/WorldParakarry.h"
 
 #include "partner/goompa.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 
 #include "partner/watt.h"
 #include "sprite/npc/WorldWatt.h"
@@ -34,7 +34,7 @@
 #include "sprite/npc/WorldBow.h"
 
 #include "partner/goombaria.h"
-#include "sprite/npc/Goombaria.h"
+// #include "sprite/npc/Goombaria.h"
 
 #include "partner/twink.h"
 #include "sprite/npc/Twink.h"
@@ -241,7 +241,7 @@ WorldPartner wPartners[] = {
         .update = &EVS_WorldGoompa_Update,
         .useAbility = &EVS_WorldGoompa_UseAbility,
         .putAway = &EVS_WorldGoompa_PutAway,
-        .idle = ANIM_Goompa_Idle,
+        .idle = 0,
     },
     [PARTNER_WATT] {
         .dmaStart = &world_partner_watt_ROM_START,
@@ -316,7 +316,7 @@ WorldPartner wPartners[] = {
         .update = &EVS_WorldGoombaria_Update,
         .useAbility = &EVS_WorldGoombaria_UseAbility,
         .putAway = &EVS_WorldGoombaria_PutAway,
-        .idle = ANIM_Goombaria_Idle,
+        .idle = 0,
         .canUseAbility = partner_is_idle,
         .canPlayerOpenMenus = partner_is_idle,
     },
@@ -389,15 +389,15 @@ PartnerAnimations gPartnerAnimations[] = {
         ANIM_WorldParakarry_Hurt
     }},
     [PARTNER_GOOMPA] {{
-        ANIM_Goompa_Still,
-        ANIM_Goompa_Walk,
-        ANIM_Goompa_Jump,
-        ANIM_Goompa_Fall,
-        ANIM_Goompa_Idle,
-        ANIM_Goompa_Idle,
-        ANIM_Goompa_Run,
-        ANIM_Goompa_Talk,
-        ANIM_Goompa_Idle
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
     }},
     [PARTNER_WATT] {{
         ANIM_WorldWatt_Still,
@@ -444,15 +444,15 @@ PartnerAnimations gPartnerAnimations[] = {
         ANIM_WorldBow_Flail
     }},
     [PARTNER_GOOMBARIA] {{
-        ANIM_Goombaria_Still,
-        ANIM_Goombaria_Walk,
-        ANIM_Goombaria_Jump,
-        ANIM_Goombaria_Fall,
-        ANIM_Goombaria_Idle,
-        ANIM_Goombaria_Idle,
-        ANIM_Goombaria_Run,
-        ANIM_Goombaria_Talk,
-        ANIM_Goombaria_Idle
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
     }},
     [PARTNER_TWINK] {{
         ANIM_Twink_Still,

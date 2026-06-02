@@ -50,7 +50,7 @@ EvtScript N(EVS_EnterMap) = {
                 Call(DisablePlayerInput, true)
                 Wait(20 * DT)
                 Call(DisablePartnerAI, 0)
-                Call(SpeakToPlayer, NPC_PARTNER, ANIM_Goompa_Talk, ANIM_Goompa_Idle, 4, MSG_CH0_001C)
+                // Call(SpeakToPlayer, NPC_PARTNER, ANIM_Goompa_Talk, ANIM_Goompa_Idle, 4, MSG_CH0_001C)
                 Call(EnablePartnerAI)
                 Set(GF_KMR02_ReturnedWithGoompa, true)
                 Call(DisablePlayerInput, false)

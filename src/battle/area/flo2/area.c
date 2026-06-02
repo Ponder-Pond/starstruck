@@ -15,11 +15,11 @@ extern Stage A(flo_04);
 extern Stage A(flo_05);
 extern Stage A(flo_06);
 
-Vec3i A(huff_n_puff_pos) = { 80, 80, 0 };
+// Vec3i A(huff_n_puff_pos) = { 80, 80, 0 };
 
-Formation A(Formation_01) = {
-    ACTOR_BY_POS(A(huff_n_puff), A(huff_n_puff_pos), 10),
-};
+// Formation A(Formation_01) = {
+//     ACTOR_BY_POS(A(huff_n_puff), A(huff_n_puff_pos), 10),
+// };
 
 Formation A(Formation_02) = {
     ACTOR_BY_IDX(A(monty_mole_boss), BTL_POS_GROUND_B, 10),
@@ -48,7 +48,7 @@ Formation A(Formation_06) = {
 };
 
 BattleList A(Formations) = {
-    BATTLE(A(Formation_01), A(flo_04), "オズモーン"),
+    // BATTLE(A(Formation_01), A(flo_04), "オズモーン"),
     BATTLE(A(Formation_02), A(flo_01), "フラワーチョロプー"),
     BATTLE(A(Formation_03), A(flo_01), "フラワーチョロプーx２"),
     BATTLE(A(Formation_04), A(flo_01), "フラワーチョロプーx３"),

@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SpriteSheet maxComponents="4" paletteGroups="1">
+	<PaletteList>
+		<Palette id="0" name="Default" src="Default.png"/>
+		<Palette id="1" name="Doused" src="Doused.png"/>
+		<Palette id="2" name="Chain" src="Chain.png"/>
+	</PaletteList>
+	<RasterList>
+		<Raster id="0" name="ElecNE" palette="0" src="ElecNE.png"/>
+		<Raster id="1" name="ElecNW" palette="0" src="ElecNW.png"/>
+		<Raster id="2" name="ElecSE" palette="0" src="ElecSE.png"/>
+		<Raster id="3" name="ElecSW" palette="0" src="ElecSW.png"/>
+		<Raster id="4" name="Body1" palette="0" src="Body1.png"/>
+		<Raster id="5" name="Body2" palette="0" src="Body2.png"/>
+		<Raster id="6" name="Body3" palette="0" src="Body3.png"/>
+		<Raster id="7" name="Body4" palette="0" src="Body4.png"/>
+		<Raster id="8" name="Body5" palette="0" src="Body5.png"/>
+		<Raster id="9" name="Body6" palette="0" src="Body6.png"/>
+		<Raster id="A" name="Body7" palette="0" src="Body7.png"/>
+		<Raster id="B" name="Body8" palette="0" src="Body8.png"/>
+		<Raster id="C" name="Body9" palette="0" src="Body9.png"/>
+		<Raster id="D" name="EyesClosed" palette="0" src="EyesClosed.png"/>
+		<Raster id="E" name="EyesLeft" palette="0" src="EyesLeft.png"/>
+		<Raster id="F" name="EyesNormal" palette="0" src="EyesNormal.png"/>
+		<Raster id="10" name="EyesRight" palette="0" src="EyesRight.png"/>
+		<Raster id="11" name="EyesUp" palette="0" src="EyesUp.png"/>
+		<Raster id="12" name="EyesDown" palette="0" src="EyesDown.png"/>
+		<Raster id="13" name="Doused" palette="1" src="Doused.png"/>
+		<Raster id="14" name="Chain1" palette="2" src="Chain1.png"/>
+	</RasterList>
+	<AnimationList>
+		<Animation name="Still">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,8,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="F"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Idle">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="6"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<SetPos flag="0" xyz="0,2,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,8,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="F"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Talk">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="6"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<SetPos flag="0" xyz="0,2,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,9,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="F"/>
+				<Wait duration="8"/>
+				<SetRaster index="F"/>
+				<SetScale mode="y" percent="90"/>
+				<SetScale mode="x" percent="105"/>
+				<SetPos flag="0" xyz="0,2,0"/>
+				<Wait duration="8"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Hurt">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="-1,0,0"/>
+				<Wait duration="4"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<SetPos flag="0" xyz="1,0,0"/>
+				<Wait duration="4"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="2"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,8,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="D"/>
+				<Wait duration="2"/>
+				<SetRaster index="D"/>
+				<SetPos flag="0" xyz="0,2,0"/>
+				<SetScale mode="y" percent="90"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="MoveLeft">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="0,-1,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="-1,8,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="E"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="MoveRight">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="0,-1,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="1,8,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="10"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="MoveUp">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="-1,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="1,0,0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,9,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="11"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="MoveDown">
+			<Component name="Movement" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetPos flag="0" xyz="-1,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="1,0,0"/>
+				<Wait duration="2"/>
+				<SetPos flag="0" xyz="0,0,0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="4"/>
+				<Wait duration="2"/>
+				<SetRaster index="7"/>
+				<Wait duration="2"/>
+				<SetRaster index="8"/>
+				<Wait duration="2"/>
+				<SetRaster index="B"/>
+				<Wait duration="2"/>
+				<SetRaster index="A"/>
+				<Wait duration="2"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<SetRaster index="4"/>
+				<Wait duration="4"/>
+				<SetRaster index="8"/>
+				<Wait duration="4"/>
+				<SetRaster index="A"/>
+				<Wait duration="4"/>
+				<SetRaster index="9"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Eyes" xyz="0,7,2">
+				<Label name="Start"/>
+				<SetParent index="0"/>
+				<SetRaster index="12"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetPos flag="1" xyz="-17,23,0"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,26,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="1"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-23,30,0"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetPos flag="1" xyz="-26,35,0"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetRaster index="1"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSW" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<SetPos flag="1" xyz="-16,-5,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="-19,-7,0"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetRaster index="3"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="70"/>
+				<SetPos flag="1" xyz="-22,-11,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="-23,-9,0"/>
+				<SetRaster index="3"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkNE" xyz="0,10,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="10"/>
+				<SetPos flag="1" xyz="12,24,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="18,30,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="19,33,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="21,36,0"/>
+				<SetRaster index="0"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="SparkSE" xyz="0,6,0">
+				<Label name="Start"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="4"/>
+				<SetPos flag="1" xyz="17,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="80"/>
+				<SetPos flag="1" xyz="21,2,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="4"/>
+				<SetScale mode="uniform" percent="60"/>
+				<SetPos flag="1" xyz="24,3,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetScale mode="uniform" percent="40"/>
+				<SetPos flag="1" xyz="25,4,0"/>
+				<SetRaster index="2"/>
+				<Wait duration="2"/>
+				<SetRaster index="FFFFFFFF"/>
+				<Wait duration="6"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Doused">
+			<Component name="Body" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="13"/>
+				<Wait duration="12"/>
+				<SetRaster index="13"/>
+				<SetScale mode="uniform" percent="98"/>
+				<SetPos flag="0" xyz="0,1,0"/>
+				<Wait duration="12"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+		<Animation name="Chain">
+			<Component name="Chain1" xyz="0,0,0">
+				<Label name="Start"/>
+				<SetRaster index="14"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Chain2" xyz="0,64,0">
+				<Label name="Start"/>
+				<SetRaster index="14"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+			<Component name="Chain3" xyz="0,128,0">
+				<Label name="Start"/>
+				<SetRaster index="14"/>
+				<Wait duration="2"/>
+				<Goto dest="Start"/>
+			</Component>
+		</Animation>
+	</AnimationList>
+</SpriteSheet>

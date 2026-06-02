@@ -4,7 +4,7 @@
 #define NAMESPACE A(iwa_02)
 
 // this (unused) whacka is part of the stage
-extern ActorBlueprint N(whacka);
+// extern ActorBlueprint N(whacka);
 
 EvtScript N(EVS_PreBattle) = {
     Call(SetSpriteShading, SHADING_NONE)
@@ -33,14 +33,14 @@ Stage NAMESPACE = {
     .foregroundModelList = N(ForegroundModels),
 };
 
-Vec3i N(OriginPos) = { 0, 0, 0 };
+// Vec3i N(OriginPos) = { 0, 0, 0 };
 
-Formation N(WhackaFormation) = {
-    ACTOR_BY_POS(N(whacka), N(OriginPos), 0),
-};
+// Formation N(WhackaFormation) = {
+//     ACTOR_BY_POS(N(whacka), N(OriginPos), 0),
+// };
 
 // needs to match stage name used while defining NAMESPACE above
 // the actor include redefines NAMESPACE based on current AREA, so we need to insert the stage name via prefix
 #define NAME_PREFIX iwa_02_
-#include "battle/common/actor/whacka.inc.c"
+// #include "battle/common/actor/whacka.inc.c"
 #define NAME_PREFIX

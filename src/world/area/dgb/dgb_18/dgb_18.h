@@ -10,7 +10,7 @@
 #include "mapfs/dgb_18_hit.h"
 
 #include "sprite/npc/WorldTubba.h"
-#include "sprite/npc/Yakkey.h"
+// #include "sprite/npc/Yakkey.h"
 #include "sprite/npc/WorldGoombario.h"
 #include "sprite/npc/WorldKooper.h"
 #include "sprite/npc/WorldBombette.h"

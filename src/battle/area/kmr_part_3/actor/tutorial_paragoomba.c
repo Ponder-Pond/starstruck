@@ -1,7 +1,7 @@
 #include "../area.h"
 #include "sprite/npc/Paragoomba.h"
 #include "sprite/npc/Goomba.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 
 #define NAMESPACE A(tutorial_paragoomba)
 
@@ -591,7 +591,7 @@ EvtScript N(EVS_TutorialScene) = {
     Wait(5)
     Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
     Call(MoveBattleCamOver, 10)
-    Call(ActorSpeak, MSG_CH0_00B8, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
+    // Call(ActorSpeak, MSG_CH0_00B8, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
     Set(GF_Tutorial_FlyingEnemy, true)
     Call(SetActorYaw, ACTOR_PLAYER, 150)
     Wait(1)

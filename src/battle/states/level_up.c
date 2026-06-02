@@ -11,7 +11,7 @@
 #include "sprite/npc/BattleKooper.h"
 #include "sprite/npc/BattleBombette.h"
 #include "sprite/npc/BattleParakarry.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 #include "sprite/npc/BattleWatt.h"
 #include "sprite/npc/BattleSushie.h"
 #include "sprite/npc/BattleLakilester.h"
@@ -186,7 +186,7 @@ s32 D_80284154[] = {
     [PARTNER_KOOPER]        = ANIM_BattleKooper_Walk,
     [PARTNER_BOMBETTE]      = ANIM_BattleBombette_Walk,
     [PARTNER_PARAKARRY]     = ANIM_BattleParakarry_Walk,
-    [PARTNER_GOOMPA]        = ANIM_Goompa_Walk,
+    [PARTNER_GOOMPA]        = 0,
     [PARTNER_WATT]          = ANIM_BattleWatt_Walk,
     [PARTNER_SUSHIE]        = ANIM_BattleSushie_Walk,
     [PARTNER_LAKILESTER]    = ANIM_BattleLakilester_Walk,

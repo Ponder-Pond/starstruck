@@ -2,7 +2,7 @@
 #include "sprite/npc/JrTroopa.h"
 #include "sprite/npc/ParaJrTroopa.h"
 #include "sprite/player.h"
-#include "sprite/npc/Goompa.h"
+// #include "sprite/npc/Goompa.h"
 
 #define NAMESPACE A(jr_troopa)
 
@@ -209,7 +209,7 @@ EvtScript N(EVS_JrTroopa_Death) = {
     Wait(1)
     Call(SetActorYaw, ACTOR_PLAYER, 180)
     Wait(5)
-    Call(ActorSpeak, MSG_CH0_00B4, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
+    // Call(ActorSpeak, MSG_CH0_00B4, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
     Call(SetActorYaw, ACTOR_PLAYER, 150)
     Wait(1)
     Call(SetActorYaw, ACTOR_PLAYER, 120)
@@ -426,7 +426,7 @@ EvtScript N(EVS_HandlePhase) = {
                     EndLoop
                 EndThread
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_JrTroopa_Punch)
-                Call(ActorSpeak, MSG_CH0_00AF, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
+                // Call(ActorSpeak, MSG_CH0_00AF, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
                 Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_JrTroopa_Idle)
                 Call(SetAnimation, ACTOR_PLAYER, 0, ANIM_Mario1_NodYes)
                 Wait(10)
@@ -461,7 +461,7 @@ EvtScript N(EVS_HandlePhase) = {
                     EndLoop
                 EndThread
                 Call(UseIdleAnimation, ACTOR_PARTNER, false)
-                Call(ActorSpeak, MSG_CH0_00B0, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
+                // Call(ActorSpeak, MSG_CH0_00B0, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
                 Call(UseIdleAnimation, ACTOR_PARTNER, true)
                 Call(SetAnimation, ACTOR_PLAYER, 0, ANIM_Mario1_ThumbsUp)
                 Wait(20)
@@ -476,7 +476,7 @@ EvtScript N(EVS_HandlePhase) = {
                 IfLe(LVar0, 1)
                     Call(SetActorVar, ACTOR_SELF, AVAR_JrTroopa_PoweredUp, true)
                     Call(UseIdleAnimation, ACTOR_PARTNER, false)
-                    Call(ActorSpeak, MSG_CH0_00B2, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
+                    // Call(ActorSpeak, MSG_CH0_00B2, ACTOR_PARTNER, 0, ANIM_Goompa_Talk, ANIM_Goompa_Idle)
                     Call(UseIdleAnimation, ACTOR_PARTNER, true)
                     ExecWait(N(EVS_Cam_FocusOnJrTroopa))
                     Call(ActorSpeak, MSG_CH0_00B3, ACTOR_SELF, PRT_MAIN, ANIM_JrTroopa_Talk, ANIM_JrTroopa_Idle)

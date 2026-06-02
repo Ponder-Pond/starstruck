@@ -1,6 +1,6 @@
 #include "../area.h"
 #include "sprite/npc/LavaPiranha.h"
-#include "sprite/npc/BattleKolorado.h"
+// #include "sprite/npc/BattleKolorado.h"
 #include "sprite/npc/LavaBud.h"
 #include "sprite/npc/PetitPiranha.h"
 #include "sprite/player.h"
@@ -594,7 +594,7 @@ EvtScript N(EVS_Init) = {
     Call(SummonEnemy, Ref(N(RightBudFormation)), false)
     Wait(2)
     Exec(N(EVS_InitVines))
-    Call(CreateNpc, NPC_BTL_COMPANION, ANIM_BattleKolorado_Idle)
+    // Call(CreateNpc, NPC_BTL_COMPANION, ANIM_BattleKolorado_Idle)
     Call(SetNpcYaw, NPC_BTL_COMPANION, 90)
     Call(SetNpcPos, NPC_BTL_COMPANION, -300, 0, 0)
     Call(BindTakeTurn, ACTOR_SELF, Ref(N(EVS_TakeTurn)))
@@ -679,14 +679,14 @@ EvtScript N(EVS_Scene_KoloradoToTheRescue) = {
             Wait(2)
         EndLoop
     EndThread
-    Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_WalkSad)
+    // Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_WalkSad)
     Call(SetNpcAnimationSpeed, NPC_BTL_COMPANION, Float(2.0))
     Call(SetNpcSpeed, NPC_BTL_COMPANION, Float(10.0))
     Call(NpcMoveTo, NPC_BTL_COMPANION, 70, 0, 0)
     Call(PlaySoundAtNpc, NPC_BTL_COMPANION, SOUND_TOUCH_LAVA, SOUND_SPACE_DEFAULT)
     Call(SetNpcAnimationSpeed, NPC_BTL_COMPANION, Float(1.0))
     Call(SetNpcJumpscale, NPC_BTL_COMPANION, Float(1.0))
-    Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Injured)
+    // Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Injured)
     Thread
         Loop(10)
             Call(GetNpcPos, NPC_BTL_COMPANION, LVar0, LVar1, LVar2)
@@ -709,7 +709,7 @@ EvtScript N(EVS_Scene_KoloradoToTheRescue) = {
     Call(NpcJump0, NPC_BTL_COMPANION, 50, 0, 0, 6)
     Call(NpcJump0, NPC_BTL_COMPANION, 50, 0, 0, 3)
     Wait(8)
-    Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Hurt)
+    // Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Hurt)
     Call(SetNpcJumpscale, NPC_BTL_COMPANION, Float(0.7))
     Call(NpcJump0, NPC_BTL_COMPANION, 50, 0, 0, 12)
     Thread
@@ -720,12 +720,12 @@ EvtScript N(EVS_Scene_KoloradoToTheRescue) = {
             Wait(2)
         EndLoop
     EndThread
-    Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Run)
+    // Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Run)
     Call(SetNpcSpeed, NPC_BTL_COMPANION, Float(8.0))
     Call(NpcMoveTo, NPC_BTL_COMPANION, -60, 0, 0)
-    Call(SpeakToPlayer, NPC_BTL_COMPANION, ANIM_BattleKolorado_Shout, ANIM_BattleKolorado_ShoutStill, 5, MSG_CH5_0106)
+    // Call(SpeakToPlayer, NPC_BTL_COMPANION, ANIM_BattleKolorado_Shout, ANIM_BattleKolorado_ShoutStill, 5, MSG_CH5_0106)
     Call(PlaySoundAtActor, ACTOR_SELF, SOUND_RUN_AWAY)
-    Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Run)
+    // Call(SetNpcAnimation, NPC_BTL_COMPANION, ANIM_BattleKolorado_Run)
     Call(SetNpcSpeed, NPC_BTL_COMPANION, Float(6.0))
     Call(NpcMoveTo, NPC_BTL_COMPANION, -300, 0, 0)
     Call(EnableBattleStatusBar, true)
