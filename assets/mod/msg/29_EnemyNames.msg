@@ -526,6 +526,10 @@
 	Terratroopa[End]
 }
 
+#message:29:(EnemyName_Hoopster) {
+	Hoopster[End]
+}
+
 #message:29:(EnemyName_Goombo) {
 	Goombo[End]
 }

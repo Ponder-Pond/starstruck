@@ -7,6 +7,10 @@ extern Stage A(nok_02);
 extern Stage A(nok_03);
 extern Stage A(nok_04);
 
+#include "battle/common/newstage/ttr_bt00.inc.c"
+
+extern Stage A(ttr_bt00);
+
 Formation A(Formation_00) = {
     OVL_ACTOR_BY_IDX("goomba", BTL_POS_GROUND_B, 10),
     OVL_ACTOR_BY_IDX("goomba", BTL_POS_GROUND_C, 9),
@@ -157,6 +161,12 @@ Formation A(Formation_1A) = {
     OVL_ACTOR_BY_IDX("galoomba", BTL_POS_GROUND_C, 8),
 };
 
+Vec3i A(HoopsterGroundPosB) = { 45, 10, -5 };
+
+Formation A(Formation_1B) = {
+    OVL_ACTOR_BY_POS("hoopster", A(HoopsterGroundPosB), 10),
+};
+
 BattleList A(Formations) = {
     BATTLE(A(Formation_00), A(nok_02), "クリボーx２"),
     BATTLE(A(Formation_01), A(nok_02), "クリボー,トゲクリボー"),
@@ -184,7 +194,8 @@ BattleList A(Formations) = {
     BATTLE(A(Formation_17), A(nok_02), "チョロボンx4"),
     BATTLE(A(Formation_18), A(nok_02), "ゼニノコー"),
     BATTLE(A(Formation_19), A(nok_02), "Terratroopa"),
-    BATTLE(A(Formation_1A), A(nok_02), "Galoomba"),
+    BATTLE(A(Formation_1A), A(ttr_bt00), "Galoomba"),
+    BATTLE(A(Formation_1B), A(ttr_bt00), "Hoopster"),
     {},
 };
 
@@ -193,5 +204,6 @@ StageList A(Stages) = {
     STAGE("nok_02", A(nok_02)),
     STAGE("nok_03", A(nok_03)),
     STAGE("nok_04", A(nok_04)),
+    STAGE("ttr_bt00", A(ttr_bt00)),
     {},
 };

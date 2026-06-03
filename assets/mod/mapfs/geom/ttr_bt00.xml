@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Map stage="true" textures="ttr_tex">
 	<Editor>
-		<Camera pos="3.400603,140.906357,213.002716" pitch="28.839996" yaw="2.401465"/>
+		<Camera pos="-44.834099,191.139908,104.821960" pitch="16.039948" yaw="353.921722"/>
 		<Camera pos="-20.033991,65536.000000,104.074051"/>
 		<Camera pos="65536.000000,15.424265,-103.000000"/>
 		<Camera pos="35.587753,-7.891762,65536.000000"/>
@@ -77,7 +77,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="bowserportrait" id="16"/>
-			<ShapeMesh ver="3" texture="aaa_bowsersigntif">
+			<ShapeMesh ver="3" texture="bowsersign">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -105,7 +105,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="jar" id="15"/>
-			<ShapeMesh ver="3" texture="aaa_jartif">
+			<ShapeMesh ver="3" texture="jar">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -133,7 +133,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="papers" id="14"/>
-			<ShapeMesh ver="3" texture="aaa_paperstif">
+			<ShapeMesh ver="3" texture="papers">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -161,7 +161,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="yoshineon" id="13"/>
-			<ShapeMesh ver="3" texture="aaa_yoshisigntif">
+			<ShapeMesh ver="3" texture="yoshisign">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -189,7 +189,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="flagpole" id="12"/>
-			<ShapeMesh ver="3" texture="aaa_flagtif">
+			<ShapeMesh ver="3" texture="flag">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -217,7 +217,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="boxright" id="11"/>
-			<ShapeMesh ver="3" texture="aaa_mikitif">
+			<ShapeMesh ver="3" texture="miki">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -285,7 +285,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="boxleft" id="10"/>
-			<ShapeMesh ver="3" texture="aaa_miki4tif">
+			<ShapeMesh ver="3" texture="miki4">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -335,7 +335,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="stepsright" id="F"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -363,7 +363,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="stepsleft" id="E"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -391,7 +391,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="curtainright" id="D"/>
-			<ShapeMesh ver="3" texture="aaa_curtaintif">
+			<ShapeMesh ver="3" texture="curtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -419,7 +419,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="curtainleft" id="C"/>
-			<ShapeMesh ver="3" texture="aaa_curtaintif">
+			<ShapeMesh ver="3" texture="curtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -447,7 +447,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="curtaintopright" id="B"/>
-			<ShapeMesh ver="3" texture="aaa_topcurtaintif">
+			<ShapeMesh ver="3" texture="topcurtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -475,7 +475,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="curtaintopmid" id="A"/>
-			<ShapeMesh ver="3" texture="aaa_topcurtaintif">
+			<ShapeMesh ver="3" texture="topcurtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -503,7 +503,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="curtaintopleft" id="9"/>
-			<ShapeMesh ver="3" texture="aaa_topcurtaintif">
+			<ShapeMesh ver="3" texture="topcurtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -531,7 +531,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="backwall" id="8"/>
-			<ShapeMesh ver="3" texture="aaa_wallbacktif">
+			<ShapeMesh ver="3" texture="wallback">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -559,7 +559,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="audienceseats" id="7"/>
-			<ShapeMesh ver="3" texture="aaa_topcurtaintif">
+			<ShapeMesh ver="3" texture="topcurtain">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -587,7 +587,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="o287" id="6"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -615,7 +615,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="o287" id="5"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -641,7 +641,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="waku3" id="4"/>
-			<ShapeMesh ver="3" texture="aaa_frametif">
+			<ShapeMesh ver="3" texture="frame">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -675,7 +675,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="yuka" id="3"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -723,7 +723,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="waku2" id="2"/>
-			<ShapeMesh ver="3" texture="aaa_walltif">
+			<ShapeMesh ver="3" texture="wall">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -761,7 +761,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="waku" id="1"/>
-			<ShapeMesh ver="3" texture="aaa_walltif">
+			<ShapeMesh ver="3" texture="wall">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -799,7 +799,7 @@
 		</Model>
 		<Model ver="2" type="MODEL" lightset="0">
 			<MapObject name="yuka2" id="0"/>
-			<ShapeMesh ver="3" texture="aaa_floortif">
+			<ShapeMesh ver="3" texture="floor">
 				<DisplayList>
 					<F3DEX2 cmd="E7000000,0"/>
 					<F3DEX2 cmd="D9FDFFFF,0"/>
@@ -830,7 +830,7 @@
 			<HitObject type="ROOT"/>
 		</Collider>
 		<Collider ver="0" flags="0" surface="0">
-			<MapObject name="yuka" id="0"/>
+			<MapObject name="yuka" id="0" hidden="true"/>
 			<HitObject type="HIT"/>
 			<HitMesh ver="0">
 				<TriangleBatch ver="0">
@@ -867,55 +867,55 @@
 			<MapObject name="Root" id="10"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="105,0,0" yaw="0.000000">
-			<MapObject name="Home Position 10" id="F"/>
+			<MapObject name="Home Position 10" id="F" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="135,130,25" yaw="0.000000">
-			<MapObject name="Home Position F" id="E"/>
+			<MapObject name="Home Position F" id="E" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="95,125,10" yaw="0.000000">
-			<MapObject name="Home Position E" id="D"/>
+			<MapObject name="Home Position E" id="D" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="55,120,-5" yaw="0.000000">
-			<MapObject name="Home Position D" id="C"/>
+			<MapObject name="Home Position D" id="C" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="15,125,-20" yaw="0.000000">
-			<MapObject name="Home Position C" id="B"/>
+			<MapObject name="Home Position C" id="B" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="135,90,25" yaw="0.000000">
-			<MapObject name="Home Position B" id="A"/>
+			<MapObject name="Home Position B" id="A" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="95,85,10" yaw="0.000000">
-			<MapObject name="Home Position A" id="9"/>
+			<MapObject name="Home Position A" id="9" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="55,80,-5" yaw="0.000000">
-			<MapObject name="Home Position 9" id="8"/>
+			<MapObject name="Home Position 9" id="8" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="-8,88,-21" yaw="0.000000">
-			<MapObject name="Home Position 8" id="7"/>
+			<MapObject name="Home Position 8" id="7" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="130,55,25" yaw="0.000000">
-			<MapObject name="Home Position 7" id="6"/>
+			<MapObject name="Home Position 7" id="6" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="90,50,10" yaw="0.000000">
-			<MapObject name="Home Position 6" id="5"/>
+			<MapObject name="Home Position 6" id="5" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="50,45,-5" yaw="0.000000">
-			<MapObject name="Home Position 5" id="4"/>
+			<MapObject name="Home Position 5" id="4" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="10,50,-20" yaw="0.000000">
-			<MapObject name="Home Position 4" id="3"/>
+			<MapObject name="Home Position 4" id="3" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="125,0,25" yaw="0.000000">
-			<MapObject name="Home Position 3" id="2"/>
+			<MapObject name="Home Position 3" id="2" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="85,0,10" yaw="0.000000">
-			<MapObject name="Home Position 2" id="1"/>
+			<MapObject name="Home Position 2" id="1" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="45,0,-5" yaw="0.000000">
-			<MapObject name="Home Position 1" id="0"/>
+			<MapObject name="Home Position 1" id="0" hidden="true"/>
 		</Marker>
 		<Marker ver="4" type="Position" pos="5,0,-20" yaw="0.000000">
-			<MapObject name="Home Position 0" id="FFFFFFFF"/>
+			<MapObject name="Home Position 0" id="FFFFFFFF" hidden="true"/>
 		</Marker>
 	</Markers>
 	<ScriptData>

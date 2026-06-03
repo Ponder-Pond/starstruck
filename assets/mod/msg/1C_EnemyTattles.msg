@@ -2970,6 +2970,12 @@
 	This is a Terratroopa.[BR][Wait][End]
 }
 
+#message:1C:(EnemyTattle_Hoopster) {
+	[Style right]
+	This is a Hoopster.[BR]
+	[Wait][End]
+}
+
 #message:1C:(EnemyTattle_Goombo) {
 	[Style right]
 	This is a Goombo.[BR]
