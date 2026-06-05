@@ -2,8 +2,11 @@
 <SpriteSheet maxComponents="4" paletteGroups="1">
 	<PaletteList>
 		<Palette id="0" name="Default" src="Default.png"/>
-		<Palette id="1" name="Doused" src="Doused.png"/>
-		<Palette id="2" name="Chain" src="Chain.png"/>
+		<Palette id="1" name="Chain" src="Chain.png"/>
+		<Palette id="2" name="Poisoned" src="Poisoned.png"/>
+		<Palette id="3" name="Dizzy" src="Dizzy.png"/>
+		<Palette id="4" name="Shocked" src="Shocked.png"/>
+		<Palette id="5" name="Doused" src="Doused.png"/>
 	</PaletteList>
 	<RasterList>
 		<Raster id="0" name="ElecNE" palette="0" src="ElecNE.png"/>
@@ -25,8 +28,8 @@
 		<Raster id="10" name="EyesRight" palette="0" src="EyesRight.png"/>
 		<Raster id="11" name="EyesUp" palette="0" src="EyesUp.png"/>
 		<Raster id="12" name="EyesDown" palette="0" src="EyesDown.png"/>
-		<Raster id="13" name="Doused" palette="1" src="Doused.png"/>
-		<Raster id="14" name="Chain1" palette="2" src="Chain1.png"/>
+		<Raster id="13" name="Doused" palette="5" src="Doused.png"/>
+		<Raster id="14" name="Chain1" palette="1" src="Chain1.png"/>
 	</RasterList>
 	<AnimationList>
 		<Animation name="Still">

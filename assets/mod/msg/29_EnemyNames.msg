@@ -530,6 +530,10 @@
 	Hoopster[End]
 }
 
+#message:29:(EnemyName_Spark) {
+	Spark[End]
+}
+
 #message:29:(EnemyName_Goombo) {
 	Goombo[End]
 }

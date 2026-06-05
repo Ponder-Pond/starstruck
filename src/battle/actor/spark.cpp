@@ -2,9 +2,9 @@
 #include "effects.h"
 #include "battle/battle.h"
 #include "script_api/battle.h"
-#include "sprite/npc/Hoopster.h"
+#include "sprite/npc/SparkSMB2.h"
 
-namespace hoopster {
+namespace spark {
 
 extern EvtScript EVS_Init;
 extern EvtScript EVS_Idle;
@@ -14,15 +14,15 @@ extern EvtScript EVS_Move_HomePositionGround;
 extern EvtScript EVS_Move_HomePositionAir;
 extern EvtScript EVS_Move_HomePositionTop;
 extern s32 DefaultAnims[];
-extern s32 VineAnims[];
+extern s32 ChainAnims[];
 
 // Actor Stats
-constexpr s32 hp = 3;
-constexpr s32 dmgHeadbonk = 1;
+constexpr s32 hp = 6;
+constexpr s32 dmgContact = 2;
 
 enum ActorPartIDs {
     PRT_MAIN            = 1,
-    PRT_VINE            = 2,
+    PRT_CHAIN           = 2,
 };
 
 enum ActorVars {
@@ -33,20 +33,23 @@ enum ActorVars {
 };
 
 s32 DefenseTable[] = {
-    ELEMENT_NORMAL,   0,
+    ELEMENT_NORMAL,   1,
+    ELEMENT_WATER,    0,
+    ELEMENT_BLAST,   -1,
+    ELEMENT_SHOCK,   99,
     ELEMENT_END,
 };
 
 s32 StatusTable[] = {
     STATUS_KEY_NORMAL,              0,
     STATUS_KEY_DEFAULT,             0,
-    STATUS_KEY_SLEEP,             100,
+    STATUS_KEY_SLEEP,               0,
     STATUS_KEY_POISON,            100,
     STATUS_KEY_FROZEN,            100,
-    STATUS_KEY_DIZZY,             100,
+    STATUS_KEY_DIZZY,               0,
     STATUS_KEY_UNUSED,            100,
     STATUS_KEY_STATIC,            100,
-    STATUS_KEY_PARALYZE,          100,
+    STATUS_KEY_PARALYZE,            0,
     STATUS_KEY_SHRINK,            100,
     STATUS_KEY_STOP,              100,
     STATUS_TURN_MOD_DEFAULT,        0,
@@ -71,17 +74,17 @@ ActorPartBlueprint ActorParts[] = {
         .opacity = 255,
         .idleAnimations = DefaultAnims,
         .defenseTable = DefenseTable,
-        .eventFlags = 0,
-        .elementImmunityFlags = 0,
+        .eventFlags = ACTOR_EVENT_FLAG_ELECTRIFIED,
+        .elementImmunityFlags = ELEMENT_SHOCK,
         .projectileTargetOffset = { 0, -10 },
     },
     {
         .flags = ACTOR_PART_FLAG_NO_TARGET | ACTOR_PART_FLAG_USE_ABSOLUTE_POSITION,
-        .index = PRT_VINE,
+        .index = PRT_CHAIN,
         .posOffset = { 0, 0, 0 },
         .targetOffset = { 0, 0 },
         .opacity = 255,
-        .idleAnimations = VineAnims,
+        .idleAnimations = ChainAnims,
         .defenseTable = DefenseTable,
         .eventFlags = 0,
         .elementImmunityFlags = 0,
@@ -92,8 +95,8 @@ ActorPartBlueprint ActorParts[] = {
 extern "C" export ActorBlueprint blueprint = {
     .flags = 0,
     .maxHP = hp,
-    .type = ACTOR_TYPE_HOOPSTER,
-    .level = ACTOR_LEVEL_HOOPSTER,
+    .type = ACTOR_TYPE_SPARK,
+    .level = ACTOR_LEVEL_SPARK,
     .partCount = ARRAY_COUNT(ActorParts),
     .partsData = ActorParts,
     .initScript = &EVS_Init,
@@ -113,21 +116,18 @@ extern "C" export ActorBlueprint blueprint = {
 };
 
 s32 DefaultAnims[] = {
-    STATUS_KEY_NORMAL,    ANIM_Hoopster_Idle,
-    STATUS_KEY_STONE,     ANIM_Hoopster_Still,
-    STATUS_KEY_SLEEP,     ANIM_Hoopster_Sleep,
-    STATUS_KEY_POISON,    ANIM_Hoopster_Idle,
-    STATUS_KEY_STOP,      ANIM_Hoopster_Still,
-    STATUS_KEY_STATIC,    ANIM_Hoopster_Idle,
-    STATUS_KEY_PARALYZE,  ANIM_Hoopster_Still,
-    STATUS_KEY_DIZZY,     ANIM_Hoopster_Dizzy,
-    STATUS_KEY_UNUSED,    ANIM_Hoopster_Dizzy,
-    STATUS_KEY_FROZEN,    ANIM_Hoopster_Still,
+    STATUS_KEY_NORMAL,    ANIM_SparkSMB2_Idle,
+    STATUS_KEY_STONE,     ANIM_SparkSMB2_Still,
+    STATUS_KEY_POISON,    ANIM_SparkSMB2_Idle,
+    STATUS_KEY_STOP,      ANIM_SparkSMB2_Still,
+    STATUS_KEY_STATIC,    ANIM_SparkSMB2_Idle,
+    STATUS_KEY_PARALYZE,  ANIM_SparkSMB2_Still,
+    STATUS_KEY_FROZEN,    ANIM_SparkSMB2_Still,
     STATUS_END,
 };
 
-s32 VineAnims[] = {
-    STATUS_KEY_NORMAL,    ANIM_Hoopster_Vine,
+s32 ChainAnims[] = {
+    STATUS_KEY_NORMAL,    ANIM_SparkSMB2_Chain,
     STATUS_END,
 };
 
@@ -135,10 +135,11 @@ EvtScript EVS_Init = {
     Call(BindTakeTurn, ACTOR_SELF, Ref(EVS_TakeTurn))
     Call(BindIdle, ACTOR_SELF, Ref(EVS_Idle))
     Call(BindHandleEvent, ACTOR_SELF, Ref(EVS_HandleEvent))
-    Call(GetPartPos, ACTOR_SELF, PRT_VINE, LVar0, LVar1, LVar2)
+    Call(SetPartEventBits, ACTOR_SELF, PRT_MAIN, ACTOR_EVENT_FLAG_ELECTRIFIED, false)
+    Call(GetPartPos, ACTOR_SELF, PRT_CHAIN, LVar0, LVar1, LVar2)
     Sub(LVar1, 10)
     Sub(LVar2, 4)
-    Call(SetPartPos, ACTOR_SELF, PRT_VINE, LVar0, LVar1, LVar2)
+    Call(SetPartPos, ACTOR_SELF, PRT_CHAIN, LVar0, LVar1, LVar2)
     Return
     End
 };
@@ -155,108 +156,94 @@ EvtScript EVS_HandleEvent = {
     Switch(LVar0)
         CaseOrEq(EVENT_HIT_COMBO)
         CaseOrEq(EVENT_HIT)
-            SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
-            ExecWait(EVS_Enemy_Hit)
+            Call(GetLastElement, LVarE)
+            IfFlag(LVarE, DAMAGE_TYPE_WATER)
+                Call(SetPartEventBits, ACTOR_SELF, PRT_MAIN, ACTOR_EVENT_FLAG_ELECTRIFIED, false)
+                SetConst(LVar0, PRT_MAIN)
+                SetConst(LVar1, ANIM_SparkSMB2_Doused)
+                ExecWait(EVS_Enemy_Hit)
+            Else
+                SetConst(LVar0, PRT_MAIN)
+                SetConst(LVar1, ANIM_SparkSMB2_Hurt)
+                ExecWait(EVS_Enemy_Hit)
+            EndIf
         EndCaseGroup
         CaseEq(EVENT_BURN_HIT)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // Burn
-            SetConst(LVar2, ANIM_Hoopster_Hurt) // BurnStill
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt) // Burn
+            SetConst(LVar2, ANIM_SparkSMB2_Hurt) // BurnStill
             ExecWait(EVS_Enemy_BurnHit)
         CaseEq(EVENT_BURN_DEATH)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // Burn
-            SetConst(LVar2, ANIM_Hoopster_Hurt) // BurnStill
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt) // Burn
+            SetConst(LVar2, ANIM_SparkSMB2_Hurt) // BurnStill
             ExecWait(EVS_Enemy_BurnHit)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // BurnStill
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt) // BurnStill
             ExecWait(EVS_Enemy_Death)
             Return
         CaseEq(EVENT_SPIN_SMASH_HIT)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt)
             ExecWait(EVS_Enemy_SpinSmashHit)
         CaseEq(EVENT_SPIN_SMASH_DEATH)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt)
             ExecWait(EVS_Enemy_SpinSmashHit)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // HurtStill
-            ExecWait(EVS_Enemy_Death)
-            Return
-        CaseEq(EVENT_SHOCK_HIT)
-            SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // BurnStill
-            ExecWait(EVS_Enemy_ShockHit)
-            SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
-            // ExecWait(EVS_Enemy_Knockback)
-            // Call(JumpToGoal, ACTOR_SELF, 5, false, true, false)
-            Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(2.0))
-            Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_Dizzy)
-            Call(SetGoalToHome, ACTOR_SELF)
-            Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-            Call(RunToGoal, ACTOR_SELF, 0, false)
-            Call(SetAnimationRate, ACTOR_SELF, PRT_MAIN, Float(1.0))
-            Wait(5)
-            Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_Idle)
-        CaseEq(EVENT_SHOCK_DEATH)
-            SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // BurnStill
-            ExecWait(EVS_Enemy_ShockHit)
-            SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // HurtStill
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt) // HurtStill
             ExecWait(EVS_Enemy_Death)
             Return
         CaseEq(EVENT_STAR_BEAM)
             // do nothing
+        CaseOrEq(EVENT_SHOCK_HIT)
+        CaseOrEq(EVENT_SHOCK_DEATH)
         CaseOrEq(EVENT_ZERO_DAMAGE)
         CaseOrEq(EVENT_IMMUNE)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Idle)
+            SetConst(LVar1, ANIM_SparkSMB2_Idle)
             ExecWait(EVS_Enemy_NoDamageHit)
             Call(GetStatusFlags, ACTOR_SELF, LVar0)
             IfNotFlag(LVar0, STATUS_FLAGS_IMMOBILIZED)
-                Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_Idle)
+                Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_Idle)
                 Wait(10)
             EndIf
         EndCaseGroup
         CaseEq(EVENT_DEATH)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt)
             ExecWait(EVS_Enemy_Hit)
             Wait(10)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt) // HurtStill
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt) // HurtStill
             ExecWait(EVS_Enemy_Death)
             Return
         CaseEq(EVENT_RECOVER_STATUS)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Idle)
+            SetConst(LVar1, ANIM_SparkSMB2_Idle)
             ExecWait(EVS_Enemy_Recover)
         CaseEq(EVENT_SCARE_AWAY)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_MoveUp)
-            SetConst(LVar2, ANIM_Hoopster_Hurt)
+            SetConst(LVar1, ANIM_SparkSMB2_MoveUp)
+            SetConst(LVar2, ANIM_SparkSMB2_Hurt)
             ExecWait(EVS_Enemy_ScareAway)
             Return
         CaseEq(EVENT_BEGIN_AIR_LIFT)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_MoveDown)
+            SetConst(LVar1, ANIM_SparkSMB2_MoveDown)
             ExecWait(EVS_Enemy_AirLift)
         CaseEq(EVENT_AIR_LIFT_FAILED)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_MoveDown)
+            SetConst(LVar1, ANIM_SparkSMB2_MoveDown)
             ExecWait(EVS_Enemy_NoDamageHit)
         CaseEq(EVENT_BLOW_AWAY)
             SetConst(LVar0, PRT_MAIN)
-            SetConst(LVar1, ANIM_Hoopster_Hurt)
+            SetConst(LVar1, ANIM_SparkSMB2_Hurt)
             ExecWait(EVS_Enemy_BlowAway)
             Return
         CaseDefault
     EndSwitch
-    Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_Idle)
+    Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_Idle)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
     Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
@@ -266,6 +253,24 @@ EvtScript EVS_HandleEvent = {
 EvtScript EVS_TakeTurn = {
     Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
+    Call(GetPartEventFlags, ACTOR_SELF, PRT_MAIN, LVar1)
+    IfNotFlag(LVar1, ACTOR_EVENT_FLAG_ELECTRIFIED)
+        Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+        Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+        Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+        Call(SetBattleCamDist, 300)
+        // Call(SetBattleCamOffsetY, 55)
+        Call(BattleCamTargetActor, ACTOR_SELF)
+        Call(MoveBattleCamOver, 30)
+        Wait(30)
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_Talk)
+        Call(SetPartEventBits, ACTOR_SELF, PRT_MAIN, ACTOR_EVENT_FLAG_ELECTRIFIED, true)
+        Wait(30)
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_Idle)
+        Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+        Call(MoveBattleCamOver, 15)
+        Wait(15)
+    EndIf
     Call(GetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, LVar3)
     Switch(LVar3)
     CaseEq(AVAL_SwapHomePosition_Ground)
@@ -300,17 +305,28 @@ EvtScript EVS_Move_HomePositionGround = {
     Call(UseIdleAnimation, ACTOR_SELF, false)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_DISABLE)
     Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
+    Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+    Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+    Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+    Call(SetBattleCamDist, 450)
+    // Call(SetBattleCamOffsetY, 55)
+    Call(BattleCamTargetActor, ACTOR_SELF)
+    Call(MoveBattleCamOver, 30)
+    Wait(30)
     Call(SetGoalToTarget, ACTOR_SELF)
     Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
     Set(LVar1, 10)
     Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-    Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-    Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_MoveDown)
+    Call(SetActorSpeed, ACTOR_SELF, Float(10.0))
+    Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_MoveDown)
     Call(FlyToGoal, ACTOR_SELF, 0, 0, EASING_LINEAR)
     Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
     Call(ForceHomePos, ACTOR_SELF, LVar0, LVar1, LVar2)
     Call(HPBarToHome, ACTOR_SELF)
     Call(SetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, AVAL_SwapHomePosition_Ground)
+    Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+    Call(MoveBattleCamOver, 15)
+    Wait(15)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
     Call(UseIdleAnimation, ACTOR_SELF, true)
     Return
@@ -323,28 +339,50 @@ EvtScript EVS_Move_HomePositionAir = {
     Call(GetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, LVar3)
     IfEq(LVar3, AVAL_SwapHomePosition_Ground)
         Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
+        Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+        Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+        Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+        Call(SetBattleCamDist, 450)
+        // Call(SetBattleCamOffsetY, 55)
+        Call(BattleCamTargetActor, ACTOR_SELF)
+        Call(MoveBattleCamOver, 30)
+        Wait(30)
         Call(SetGoalToTarget, ACTOR_SELF)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Set(LVar1, 50)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_MoveUp)
+        Call(SetActorSpeed, ACTOR_SELF, Float(10.0))
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_MoveUp)
         Call(FlyToGoal, ACTOR_SELF, 0, 0, EASING_LINEAR)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(ForceHomePos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(HPBarToHome, ACTOR_SELF)
+        Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+        Call(MoveBattleCamOver, 15)
+        Wait(15)
     Else // AVAL_SwapHomePosition_Top
         Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
+        Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+        Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+        Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+        Call(SetBattleCamDist, 450)
+        // Call(SetBattleCamOffsetY, 55)
+        Call(BattleCamTargetActor, ACTOR_SELF)
+        Call(MoveBattleCamOver, 30)
+        Wait(30)
         Call(SetGoalToTarget, ACTOR_SELF)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Set(LVar1, 50)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_MoveDown)
+        Call(SetActorSpeed, ACTOR_SELF, Float(10.0))
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_MoveDown)
         Call(FlyToGoal, ACTOR_SELF, 0, 0, EASING_LINEAR)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(ForceHomePos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(HPBarToHome, ACTOR_SELF)
+        Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+        Call(MoveBattleCamOver, 15)
+        Wait(15)
     EndIf
     Call(SetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, AVAL_SwapHomePosition_Air)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
@@ -359,28 +397,50 @@ EvtScript EVS_Move_HomePositionTop = {
     Call(GetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, LVar3)
     IfEq(LVar3, AVAL_SwapHomePosition_Ground)
         Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
+        Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+        Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+        Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+        Call(SetBattleCamDist, 450)
+        // Call(SetBattleCamOffsetY, 55)
+        Call(BattleCamTargetActor, ACTOR_SELF)
+        Call(MoveBattleCamOver, 30)
+        Wait(30)
         Call(SetGoalToTarget, ACTOR_SELF)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Set(LVar1, 90)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_MoveUp)
+        Call(SetActorSpeed, ACTOR_SELF, Float(10.0))
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_MoveUp)
         Call(FlyToGoal, ACTOR_SELF, 0, 0, EASING_LINEAR)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(ForceHomePos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(HPBarToHome, ACTOR_SELF)
+        Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+        Call(MoveBattleCamOver, 15)
+        Wait(15)
     Else // AVAL_SwapHomePosition_Air
         Call(SetTargetActor, ACTOR_SELF, ACTOR_PLAYER)
+        Call(UseBattleCamPreset, BTL_CAM_REPOSITION)
+        Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
+        Call(SetBattleCamTarget, LVar0, LVar1, LVar2)
+        Call(SetBattleCamDist, 450)
+        // Call(SetBattleCamOffsetY, 55)
+        Call(BattleCamTargetActor, ACTOR_SELF)
+        Call(MoveBattleCamOver, 30)
+        Wait(30)
         Call(SetGoalToTarget, ACTOR_SELF)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Set(LVar1, 90)
         Call(SetGoalPos, ACTOR_SELF, LVar0, LVar1, LVar2)
-        Call(SetActorSpeed, ACTOR_SELF, Float(5.0))
-        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_Hoopster_MoveUp)
+        Call(SetActorSpeed, ACTOR_SELF, Float(10.0))
+        Call(SetAnimation, ACTOR_SELF, PRT_MAIN, ANIM_SparkSMB2_MoveUp)
         Call(FlyToGoal, ACTOR_SELF, 0, 0, EASING_LINEAR)
         Call(GetActorPos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(ForceHomePos, ACTOR_SELF, LVar0, LVar1, LVar2)
         Call(HPBarToHome, ACTOR_SELF)
+        Call(UseBattleCamPreset, BTL_CAM_DEFAULT)
+        Call(MoveBattleCamOver, 15)
+        Wait(15)
     EndIf
     Call(SetActorVar, ACTOR_SELF, AVAR_SwapHomePosition, AVAL_SwapHomePosition_Top)
     Call(EnableIdleScript, ACTOR_SELF, IDLE_SCRIPT_ENABLE)
@@ -389,4 +449,4 @@ EvtScript EVS_Move_HomePositionTop = {
     End
 };
 
-}; // namespace hoopster
+}; // namespace spark

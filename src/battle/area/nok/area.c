@@ -167,6 +167,12 @@ Formation A(Formation_1B) = {
     OVL_ACTOR_BY_POS("hoopster", A(HoopsterGroundPosB), 10),
 };
 
+Vec3i A(SparkGroundPosB) = { 45, 10, -5 };
+
+Formation A(Formation_1C) = {
+    OVL_ACTOR_BY_POS("spark", A(SparkGroundPosB), 10),
+};
+
 BattleList A(Formations) = {
     BATTLE(A(Formation_00), A(nok_02), "クリボーx２"),
     BATTLE(A(Formation_01), A(nok_02), "クリボー,トゲクリボー"),
@@ -196,6 +202,7 @@ BattleList A(Formations) = {
     BATTLE(A(Formation_19), A(nok_02), "Terratroopa"),
     BATTLE(A(Formation_1A), A(ttr_bt00), "Galoomba"),
     BATTLE(A(Formation_1B), A(ttr_bt00), "Hoopster"),
+    BATTLE(A(Formation_1C), A(ttr_bt00), "Spark"),
     {},
 };
 
